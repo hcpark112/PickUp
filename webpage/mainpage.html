@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PickUp</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./mainpagestyle.css">
+  </head>
+  <body>
+    
+    <div id="content" class="maxWidth maxHeight">
+      <div id="topbar">
+        <a href="https://www.google.com"><span>PickUp</span></a>
+        <div>
+          <a href="https://www.google.com"><img class="topimg" id="profile" src="./profile.png" alt="profile" /></a>
+          <a href="https://www.google.com"><img class="topimg" src="settings.png" alt="settings" /></a>
+        </div>
+      </div>
+      <div id="leftbar">
+        <div id="friendstab">
+        </div>
+      </div>
+      <div id="slideshowdiv">
+        <div id="slideshow">
+          <form id="searchbar" action="http://www.google.com/search" method="get">
+            <div class="forlabels rightborder" id="searchleftpadding">
+              <label>I want to play</label>
+              <input type="text" name="q" placeholder="Sport" autocomplete="off" />
+            </div>
+            <div class="forlabels rightborder">
+              <label>Near</label>
+              <input type="text" name="q" placeholder="Location" autocomplete="off"/>
+            </div>
+            <div class="forlabels">
+              <label>On</label>
+              <input type="text" name="q" placeholder="Date" autocomplete="off"/>
+            </div>
+            <input type="image" name="submit" src="./search.png" alt="Submit Form" />
+          </form>
+          <div>
+            <img src="./footballfield.jpg" alt="footballfield">
+          </div>
+          <div>
+            <img src="./skyline.jpg" alt="skyline">
+          </div>
+          <div>
+            <img src="./tower.jpg" alt="tower">
+          </div>
+          <div>
+            <img src="./bridge.jpg" alt="bridge">
+          </div>
+          <div>
+            <img src="./chicago.jpg" alt="chicago">
+          </div>
+        </div>
+      </div>
+      <div id="categories">
+        <form>
+          <input type="button" name="Create Game" value="Create Game" onclick="window.location.href='https://www.google.com'">
+        </form>
+        <a href="https://www.google.com"><span>View All</span></a>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        /*<![CDATA[*/
+        var chatcount = 0;
+
+        function friends(name, status){
+          var friend = $("<div class='friend'></div>");
+          $(friend).attr("ondblclick", "window.location.href='https://www.google.com'");
+
+          var stat = $("<div class='stat'></div>");
+
+          var online = {"background-color": "green"};
+          var offline = {"background-color": "red"};
+
+          var namediv = $("<div class='namediv'></div>");
+          var username = $("<span class='username'></span>");
+          $(username).html(name);
+
+          if(status == "online"){
+            $(stat).css(online);
+              $("#leftbar").prepend(friend);
+          } else {
+            $(stat).css(offline);
+              $("#leftbar").append(friend);
+          }
+
+          $(friend).append(stat);
+          $(friend).append(namediv);
+          $(namediv).append(username);
+        }
+
+        function chats(name, chattext){
+          chatcount++;
+          var chatDiv = $("<div class='chat'></div>");
+          var chatcontent = $("<p></p>");
+
+          var textform = $("<form class='textform'></form>");
+          var textinput = $("<input class='textinput' type='text' name='text' placeholder='Enter Text' autocomplete='off'/>");
+          var textsubmit = $("<input class='textinput' type='image' name='submit' src='./enter.png' alt='enter'/>");
+
+          $(textform).append(textinput);
+          $(textform).append(textsubmit);
+          $(chatDiv).append(textform);
+
+          $(chatcontent).html(chattext);
+
+          var button = $("<button class='collapsible'></button>");
+          $(button).html(name);
+
+          $("#friendstab").append(chatDiv);
+          $(chatDiv).append(chatcontent);
+          $("#friendstab").append(button);
+        }
+
+        function category(sport, image_src, target){
+          var catediv = $("<div class='catediv'></div>");
+          var newlink = $("<a class='newlink'></a>");
+          $(newlink).attr("href", target);
+
+          var cate = $("<div class='cate'></div>");
+
+          var image = $("<img class='icon'>");
+          $(image).attr("src", image_src);
+          $(image).attr("alt", sport);
+
+          var sportname = $("<p class='sportname'></p>");
+          $(sportname).html(sport);
+          var namelink = $("<a class='namelink'></a>");
+          $(namelink).attr("href", target);
+
+          $("#categories").append(catediv);
+          $(catediv).append(newlink);
+          $(newlink).append(cate);
+          $(cate).append(image);
+          $(catediv).append(namelink);
+          $(namelink).append(sportname);
+        }
+
+        $(document).ready(function() {
+          $("#slideshow > div:gt(0)").hide();
+
+          setInterval(function() { 
+            $('#slideshow > div:first')
+              .fadeOut(0)
+              .next()
+              .fadeIn(1000)
+              .end()
+              .appendTo('#slideshow');
+          },  15000);
+
+
+
+          friends("Alec Martin", "online");
+          friends("Will Loftus", "offline");
+          friends("Stella Tran", "offline");
+          friends("Jeavin Shoker", "offline");
+          friends("Emilio Ditrocchio", "online");
+          friends("Edward Lee", "online");
+
+          chats("Kevin", "Kevin: Hey, how's it going?");
+
+          var coll = document.getElementsByClassName("collapsible");
+          var i;
+
+          for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var content = this.previousElementSibling;
+              if (content.style.display === "block") {
+                content.style.display = "none";
+              } else {
+                content.style.display = "block";
+              }
+            });
+          }
+
+          category("Basketball", "./basketball.png", "https://www.google.com");
+          category("Soccer", "./soccerball.png", "https://www.google.com");
+          category("Football", "./football.png", "https://www.google.com");
+          category("Baseball", "./baseball.png", "https://www.google.com");
+          category("Volleyball", "./volleyball.png", "https://www.google.com");
+
+          
+
+
+          var addlink = $("<a></a>");
+          $(addlink).attr("href", "https://www.google.com");
+
+          var addicon = $("<img id='addicon' alt='Add Friend' src='./addfriendwhite.png'>");
+          $("#friendstab").append(addlink);
+          $(addlink).append(addicon);
+
+        });
+        /*]]>*/
+    </script>
+
+  </body>
+</html>
