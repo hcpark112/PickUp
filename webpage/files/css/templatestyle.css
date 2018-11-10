@@ -23,14 +23,6 @@ input[type=image]:active {
   border-bottom: 3px solid #e14658;
 }
 
-#logo img {
-  height: 45px; 
-  position: absolute;
-  top: 0;
-  left: calc(10vw - 57.795px);
-  width: auto;
-}
-
 #addicon:hover {
   border-bottom: 2px solid #e14658;
   height: 42px;
@@ -84,9 +76,11 @@ input[type=image]:active {
 
 #leftbar {
   background-color: #00303f;
+  bottom: 0;
+  top: 46px;
   width: 20vw;
   height: calc(100vh - 46px);
-  position: absolute;
+  position: fixed;
   left: 0;
   display: block;
 }
@@ -101,6 +95,10 @@ input[type=image]:active {
 }
 
 #topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9000;
   background-color: #232323;
   height: 45px;
   border-bottom: 1px solid black;
@@ -137,15 +135,6 @@ input[type=image]:active {
   height: 90%;
   width: 90px;
   max-width: unset;
-}
-
-#categories {
-  position: relative;
-  display: inline-flex;
-  background-color: #232323;
-  height: calc(40vh - 46px);
-  width: 80vw;
-  float: right;
 }
 
 .rightborder {
