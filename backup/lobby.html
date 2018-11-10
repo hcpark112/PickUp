@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PickUp</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./files/css/lobbystyle.css">
+  </head>
+  <body>
+    
+    <div id="content" class="maxWidth maxHeight">
+      <div id="topbar">
+        <a href="https://www.google.com"><span>PickUp</span></a>
+        <div>
+          <a href="https://www.google.com"><img class="topimg" id="profile" src="./files/images/profile.png" alt="profile" /></a>
+          <a href="https://www.google.com"><img class="topimg" src="./files/images/settings.png" alt="settings" /></a>
+        </div>
+      </div>
+      <div id="leftbar">
+        <div id="friendstab">
+        </div>
+      </div>
+      <div id="roomdiv">
+        <div id="roominfodiv">
+          <div id="roominfo">
+            <h1><span>Bob Upendown's Lobby</span></h1>
+            <h2><span>Soccer</span></h2>
+            <span>April 29th, 2018<br/>Skill Level: 1-5</span>
+          </div>
+        </div>
+        <div id="teamsdiv">
+          <div id="teams">
+            <div id="legend">
+              <div id="karma">
+                <span>Karma</span>
+              </div>
+              <div id="players">
+                <span>Player</span>
+              </div>
+            </div>
+            <span class="team">Team 1</span>
+            <div id="teamone">
+              
+            </div>
+          </div>
+        </div>
+        <div id="teamsdivtwo">
+          <div id="teamstwo">
+            <span class="team">Team 2</span>
+            <div id="teamtwo">
+              
+            </div>
+          </div>
+        </div>
+        <div id="locationdiv">
+          <div id="location">
+            <span>MAP</span>
+          </div>
+        </div>
+        <div id="joindiv">
+          <button id='joinbutton' onclick="window.location.href='https://www.google.com'">Join</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="./files/js/lobby.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0bFMT_-dlAfllbPc2rJXhZRnrJIERwv8&callback=myMap"></script>  
+  </body>
+</html>

@@ -1,0 +1,279 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+a:link {
+  color: #efefef;
+}
+
+a:visited{
+  color: #efefef;
+}
+
+input[type=image]:hover{
+  filter: drop-shadow(2px 2px 1px black);
+}
+
+input[type=image]:active {
+  background-color: white;
+}
+
+.friend:hover{
+  border-bottom: 3px solid #e14658;
+}
+
+#addicon:hover {
+  border-bottom: 2px solid #e14658;
+  height: 42px;
+}
+
+#friendstab img:hover {
+  filter: drop-shadow(2px 2px 1px black);
+}
+
+#topbar div a:hover {
+  border-bottom: 3px solid #e14658;
+}
+
+.newlink div:hover{
+  filter: drop-shadow(2px 2px 1px black);
+}
+
+.namelink p:hover {
+  border-bottom: 3px solid #e14658;
+}
+
+.maxWidth {
+  width: 100vw;
+}
+
+.maxHeight{
+  height: 100vh;
+}
+
+#slideshowdiv {
+  background-color: #313131;
+  text-align: center;
+  height: 60vh;
+  max-height: 600px;
+  width: 80vw;
+  float: right;
+}
+
+.namelink {
+  width: auto;
+  text-decoration: none;
+}
+
+.sportname {
+  margin-top: 10px;
+  font-size: 16pt;
+  font-weight: 500;
+  text-align: center;
+  color: #efefef;
+}
+
+#leftbar {
+  background-color: #00303f;
+  width: 20vw;
+  height: calc(100vh - 46px);
+  position: absolute;
+  left: 0;
+  display: block;
+}
+
+#friendstab {
+  background-color: #00303f;
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 100%;
+  z-index: 500;
+}
+
+#topbar {
+  background-color: #232323;
+  height: 45px;
+  border-bottom: 1px solid black;
+}
+
+#topbar span {
+  position: absolute;
+  left: calc(10vw - 55px);
+  font-size: 28pt;
+}
+
+#topbar > div {
+  display: inline-flex;
+  float: right;
+  height: 40px;
+  padding-top: 5px;
+  margin-right: 2%;
+}
+
+.topimg {
+  margin: 0 2%;
+  max-width: 43px;
+  max-height: 43px;
+}
+
+#topbar div a {
+  line-height: 0px;
+  font-size: 18pt;
+  text-decoration: none;
+  margin-left: 7%;
+}
+
+#profile {
+  height: 90%;
+  width: 90px;
+  max-width: unset;
+}
+
+#categories {
+  position: relative;
+  display: inline-flex;
+  background-color: #232323;
+  height: calc(40vh - 46px);
+  width: 80vw;
+  float: right;
+}
+
+.rightborder {
+  border-right: 3px solid black;
+}
+
+input[type=image] {
+  outline: none;
+  border: 2px solid black;
+  background-color: #f2d388;
+  position: absolute;
+  border-radius: 20%;
+  top: 15%;
+  right: 3%;
+  width: 6%;
+  min-width: 18px;
+  min-height: 18px;
+  height: 70%;
+}
+
+input[type=text] {
+  outline: none;
+  color: #efefef;
+  font-size: 18pt;
+  font-style: italic;
+  border-top: none;
+  border-left: none;
+  border-right: none; 
+  border-bottom: 4px solid #f2d388; 
+  background-color: #00303f;
+  height: 5vh;
+  width: 100%;
+}
+
+.textform {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  display: inline-flex;
+  padding-bottom: 6px;
+}
+
+.textform input[type=text] {
+  padding-left: 10px;
+  height: 25px;
+  border: none;
+}
+
+.textform input[type=image]{
+  top: unset;
+  width: 25px;
+  height: 25px;
+}
+
+.textform input::placeholder {
+  font-size: 12pt;
+}
+
+input::placeholder {
+  color: #efefef;
+  font-size: 18pt;
+}
+
+input[type=button] {
+  outline: none;
+  border: 1px solid black;
+  font-size: 18pt;
+  font-weight: bold;
+  color: #efefef;
+  background-color: #e14658;
+  position: absolute;
+  bottom: 90%;
+  z-index: 500;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.collapsible {
+  background-color: #11414f;
+  color: #efefef;
+  cursor: pointer;
+  height: 45px;
+  width: calc(100% - 40px);
+  border-top: 1px solid #efefef;
+  border-left: none;
+  border-right: 1px solid #efefef;
+  border-bottom: none;
+  text-align: center;
+  outline: none;
+  font-size: 18pt;
+  position: absolute;
+  bottom: 0;
+}
+
+.active, .collapsible:hover {
+  background-color: #11414f;
+}
+
+.chat {
+  display: none;
+  overflow: hidden;
+  border-top: 1px solid #efefef;
+  height: calc(100% - 45px);
+  background-color: #11414f;
+  color: #efefef;
+  position: relative;
+}
+
+#friendstab a img {
+  width: 40px;
+  height: 44px;
+  position: absolute;
+  border-top: 1px solid #efefef;
+  bottom: 0;
+  right: 0;
+}
+
+.friend {
+  width: 20vw;
+  display: inline-flex;
+  background-color: #11414f;
+  font-weight: bold;
+  color: #efefef;
+  margin-top: 10px;
+  padding: 10px 0;
+  font-size: 12pt;
+  cursor: pointer;
+}
+
+.stat {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: auto 10%;
+}
