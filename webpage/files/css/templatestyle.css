@@ -137,6 +137,17 @@ input[type=image]:active {
   max-width: unset;
 }
 
+#categories {
+  position: relative;
+  display: inline-flex;
+  background-color: #232323;
+  height: calc(45vh - 46px);
+  width: 80vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 .rightborder {
   border-right: 3px solid black;
 }
