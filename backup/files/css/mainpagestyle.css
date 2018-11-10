@@ -48,6 +48,14 @@ input[type=image]:active {
   border-bottom: 3px solid #e14658;
 }
 
+#logo img {
+  height: 45px; 
+  position: absolute;
+  top: 0;
+  left: calc(10vw - 57.795px);
+  width: auto;
+}
+
 .newlink div:hover{
   filter: drop-shadow(2px 2px 1px black);
 }
@@ -98,9 +106,11 @@ input[type=image]:active {
   position: relative;
   display: inline-flex;
   background-color: #232323;
-  height: calc(40vh - 46px);
+  height: calc(45vh - 46px);
   width: 80vw;
-  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 #categories a span {

@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   margin: 0;
 }
+span {cursor: default;}
 a:link {color: #efefef;}
 a:visited{color: #efefef;}
 input[type=image]:hover{filter: drop-shadow(2px 2px 1px black);}
@@ -13,6 +14,13 @@ input[type=image]:active {background-color: white;}
 }
 #friendstab img:hover {filter: drop-shadow(2px 2px 1px black);}
 #topbar div a:hover {border-bottom: 3px solid #e14658;}
+#logo img {
+  height: 45px; 
+  position: absolute;
+  top: 0;
+  left: calc(10vw - 57.795px);
+  width: auto;
+}
 .newlink div:hover{filter: drop-shadow(2px 2px 1px black);}
 .namelink p:hover {border-bottom: 3px solid #e14658;}
 .maxWidth {width: 100vw;}
@@ -255,18 +263,13 @@ input[type=button] {
   width: 100%;
   text-align: left;
 }
-.member, #legend {
-  height: 30px;
+.member, #legend {height: 30px;}
+.member {border: 3px solid #00303f;}
+.member:hover {
+  border-bottom: 3px solid #e14658;
 }
-.member {
-  border: 3px solid #00303f;
-}
-#legend {
-  margin-top: 0;
-}
-#legend div {
-  text-align: left;
-}
+#legend {margin-top: 0;}
+#legend div {text-align: left;}
 #karma, .playerkarmadiv{
   width: 30%; 
   background-color: #f2d388;
@@ -283,9 +286,7 @@ input[type=button] {
   width: 70%; 
   background-color: #efefef;
 }
-.team {
-  color: #00303f;
-}
+.team {color: #00303f;}
 #teamsdiv, #teamsdivtwo span {
   font-size: 16pt;
   font-weight: bold;
