@@ -48,6 +48,14 @@ input[type=image]:active {
   border-bottom: 3px solid #e14658;
 }
 
+#logo img {
+  height: 45px; 
+  position: absolute;
+  top: 0;
+  left: calc(10vw - 57.795px);
+  width: auto;
+}
+
 .newlink div:hover{
   filter: drop-shadow(2px 2px 1px black);
 }

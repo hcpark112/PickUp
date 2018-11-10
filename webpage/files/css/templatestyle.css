@@ -23,6 +23,14 @@ input[type=image]:active {
   border-bottom: 3px solid #e14658;
 }
 
+#logo img {
+  height: 45px; 
+  position: absolute;
+  top: 0;
+  left: calc(10vw - 57.795px);
+  width: auto;
+}
+
 #addicon:hover {
   border-bottom: 2px solid #e14658;
   height: 42px;
