@@ -106,9 +106,11 @@ input[type=image]:active {
   position: relative;
   display: inline-flex;
   background-color: #232323;
-  height: calc(40vh - 46px);
+  height: calc(45vh - 46px);
   width: 80vw;
-  float: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 #categories a span {
