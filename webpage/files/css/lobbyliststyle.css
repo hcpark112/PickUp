@@ -117,7 +117,7 @@ html, body {
     display: inline-block;
     width: 332px;
     height: 200px;
-    margin: 25px 21px 0 21px;
+    margin: 25px 21px 5px 21px;
     background-color: darkgreen;
 }
 .box-description {
@@ -146,6 +146,27 @@ html, body {
 .capacity {
     float: right;
     margin: 15px 10px 0 0;
+}
+.event-date img {
+    width: 25px;
+    height: auto;
+    float: left;
+}
+.event-date div {
+    display: inline-block;
+    margin-top: 3px;
+}
+.event-location {
+    margin: 150px 0 0 5px;
+}
+.event-location img {
+    width: 18px;
+    height: auto;
+    float: left;
+}
+.event-location div {
+    display: inline-block;
+    margin: 5px 0 0 2px;
 }
 /******************************
 ******************************/

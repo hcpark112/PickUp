@@ -102,6 +102,10 @@ input[type=image]:active {
 }
 
 #topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
   background-color: #232323;
   height: 45px;
   border-bottom: 1px solid black;
@@ -292,7 +296,7 @@ input[type=button] {
   background-color: #00303f;
   width: 20vw;
   height: calc(7vh - 3px);
-  position: absolute;
+  position: fixed;
   top: 46px;
   border-top: 3px solid #e14658;
   text-align: center;
