@@ -10,6 +10,7 @@ html, body {
     bottom: 0;
     width: 80%;
     height: calc(100% - 45px);
+    cursor: pointer;
 }
 /***************************
 *******LOBBY HEADER CSS******
@@ -105,8 +106,11 @@ html, body {
     width: 100%;
     min-height: 488px;
     height: auto;
-    text-align: center;
     background-color: lightgreen;
+}
+#lobby-list-content {
+    display: inline-block;
+    margin-left: 29px;
 }
 .lobby {
     display: inline-block;
@@ -139,7 +143,7 @@ html, body {
     width: 25px;
     height: auto;
 }
-.username {
+.user-name {
     display: inline-block;
     margin: 15px 0 0 10px;
 }
@@ -156,9 +160,7 @@ html, body {
     display: inline-block;
     margin-top: 3px;
 }
-.event-location {
-    margin: 150px 0 0 5px;
-}
+.event-location {margin: 150px 0 0 5px;}
 .event-location img {
     width: 18px;
     height: auto;
@@ -170,3 +172,34 @@ html, body {
 }
 /******************************
 ******************************/
+
+@media screen and (max-width: 1923px) {
+
+    #lobby-list {text-align: center;}
+    #lobby-list-content {margin: 0;}
+    .lobby {margin: 0 1%;}
+}
+@media screen and (max-width: 1600px) {
+
+    .lobby {margin: 0;}
+    #sport-name {width: 50%;}
+
+}
+@media screen and (max-width: 1425px) {
+
+    #lobby-list-content {min-width: 800px;}
+    .lobby {margin: 0 3%;}
+
+}
+@media screen and (max-width: 1080px) {
+
+    .lobby{margin: 0;} 
+
+}
+@media screen and (max-width: 1000px) {
+
+    #leftbar {display:none;}
+    #friendstitle {display:none;}
+    #inner-content {width: 100%;}
+    #sport-name {width: 55%;}
+}

@@ -1,13 +1,18 @@
 $(document).ready(function() {
-    $("#drop a").click(function() {
-        $("#sort button").html($(this).html());
+
+  //replaces drop down button text with selection
+  $("#drop a").click(function() {
+      $("#sort button").html($(this).html());
     });
+
 });
 
+//toggles drop down when button is clicked
 function dropDown() {
     document.getElementById("drop").classList.toggle("dropdown-visible");
 }
 
+//closes drop down when user clicks somewhere else on the page
 window.onclick = function(event) {
     if (!event.target.matches("#sort button")) {
   
