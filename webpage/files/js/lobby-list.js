@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("#drop a").click(function() {
-        $("button span").html($(this).html());
+        $("#sort button").html($(this).html());
     });
 });
 

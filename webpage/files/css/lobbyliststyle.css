@@ -36,7 +36,7 @@ html, body {
 }
 #lobby-header-bottom {
     width: 100%;
-    min-height: 50px;
+    height: 55px;
     margin-top: 86px;
     background-color: darkred;
 }
@@ -45,21 +45,22 @@ html, body {
     margin-left: 48px;
 }
 #sort button {
-    min-width: 141.99px;
+    min-width: 145.99;
     padding: 0 14px;
+    border: none;
+    background-color: transparent;
     font-size: 16pt;
+    color: white;
     text-align: left;
 }
-#sort button img {
-    width: 20px;
-    height: auto;
-    margin-left: 5px;
-    margin-bottom: 1px;
+#sort button:hover, #sort button:focus {
+    outline: 0;
+    border-bottom: solid coral 4px;
 }
 #sort p {
     margin: 0 0 5px 0;
-    color: white;
     font-size: 12pt;
+    color: white;
 }
 #dropdown {
     position: relative;
@@ -78,6 +79,20 @@ html, body {
 }
 .dropdown-content a:hover {background-color: #ff6e39;}
 .dropdown-visible {display: block;}
+#location {
+    float: right;
+    margin-top: 15px;
+    margin-right: 48px;
+    color: white;
+}
+#location img {
+    width: 15px;
+    height: auto;
+}
+#location p {
+    display: inline-block;
+    margin: 0;
+}
 /******************************
 ******************************/
 
@@ -93,12 +108,44 @@ html, body {
     text-align: center;
     background-color: lightgreen;
 }
+.lobby {
+    display: inline-block;
+    text-align: left;
+    background-color: lightseagreen;
+}
 .box {
     display: inline-block;
-    width: 28%;
-    min-height: 200px;
-    margin: 25px 21px;
+    width: 332px;
+    height: 200px;
+    margin: 25px 21px 0 21px;
     background-color: darkgreen;
+}
+.box-description {
+    margin: 0 auto;
+    width: 332px;
+    height: 50px;
+    background-color: white;
+}
+.box-profile {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid black 2px;
+    background-color: white;
+}
+.box-profile img {
+    margin: 5px 0 0 7px;
+    width: 25px;
+    height: auto;
+}
+.username {
+    display: inline-block;
+    margin: 15px 0 0 10px;
+}
+.capacity {
+    float: right;
+    margin: 15px 10px 0 0;
 }
 /******************************
 ******************************/
