@@ -28,7 +28,21 @@
             <h3>games near you</h3>
           </div>
           <div id = "lobby-header-bottom">
-            <div id = "sort"></div>
+            <div id = "sort">
+              <p>Sort by</p>
+
+
+              <div id = "dropdown">
+                  <button type = "button" onclick = "dropDown()"><span>Distance</span><img src = "./files/images/dropdown.png" alt = ""></button>
+                  <div id = "drop" class = "dropdown-content">
+                    <a href = "#" id = "date">Date</a>
+                    <a href = "#" id = "players">Players</a>
+                    <a href = "#" id = "distance">Distance</a>
+                  </div>
+              </div>
+
+
+            </div>
             <div id = "location"></div>
           </div>
         </div>
