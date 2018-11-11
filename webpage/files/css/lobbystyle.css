@@ -46,10 +46,26 @@ input[type=image]:active {background-color: white;}
 #leftbar {
   background-color: #00303f;
   width: 20vw;
-  height: calc(100vh - 46px);
+  height: calc(93vh - 46px);
   position: absolute;
   left: 0;
+  bottom: 0;
   display: block;
+}
+#friendstitle {
+  background-color: #00303f;
+  width: 20vw;
+  height: calc(7vh - 3px);
+  position: absolute;
+  top: 46px;
+  /*border-bottom: 3px solid #e14658;*/
+  border-top: 3px solid #e14658;
+  text-align: center;
+}
+#friendstitle span {
+  color: #efefef;
+  font-size: 24pt;
+  line-height: 65px;
 }
 #friendstab {
   background-color: #00303f;
@@ -207,7 +223,7 @@ input[type=button] {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  margin: auto 10%;
+  margin: auto 15% auto 12%;
 }
 #roominfodiv {
   background-color: #efefef;
