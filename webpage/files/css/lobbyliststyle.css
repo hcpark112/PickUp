@@ -10,7 +10,7 @@ html, body {
     bottom: 0;
     width: 80%;
     height: calc(100% - 45px);
-    cursor: pointer;
+    cursor: default;
 }
 /***************************
 *******LOBBY HEADER CSS******
@@ -87,12 +87,13 @@ html, body {
     color: white;
 }
 #location img {
+    float: left;
     width: 15px;
     height: auto;
 }
-#location p {
+#location div {
     display: inline-block;
-    margin: 0;
+    margin: 2px 0 0 5px;
 }
 /******************************
 ******************************/
@@ -187,8 +188,16 @@ html, body {
 }
 @media screen and (max-width: 1425px) {
 
-    #lobby-list-content {min-width: 800px;}
-    .lobby {margin: 0 3%;}
+    #lobby-list-content {
+        min-width: 800px;
+        text-align: justify;
+    }
+    .lobby {margin: 0 5%;}
+
+}
+@media screen and (max-width: 1176px) {
+
+    .lobby {margin: 0 2%;}
 
 }
 @media screen and (max-width: 1080px) {
@@ -202,4 +211,24 @@ html, body {
     #friendstitle {display:none;}
     #inner-content {width: 100%;}
     #sport-name {width: 55%;}
+}
+@media screen and (max-width: 800px) {
+
+    #lobby-list-content {
+        min-width: 0;
+        text-align: center;
+    }
+    #sport-name {
+        width: 100%;
+        text-align: center;
+    }
+    #sport-name h1 {
+        margin: 80px 0 0 0;
+        font-size: 48pt;
+    }
+    #sport-name h3{
+        margin: 0;
+        font-size: 26pt;
+    }
+
 }
