@@ -1,0 +1,104 @@
+/**STYLE FOR THE LOBBY LIST PAGE**/
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+#inner-content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    height: calc(100% - 45px);
+}
+/***************************
+*******LOBBY HEADER CSS******
+****************************/
+#lobby-header {
+    width: 100%;
+    min-height: 326px;
+    background-color: coral;
+}
+#sport-name {
+    width: 40%;
+    min-height: 190px;
+    background-color: lightpink;
+    padding: 1px;
+}
+#sport-name h1 {
+    margin: 60px 0px 0px 48px;
+    font-size: 36pt;
+}
+#sport-name h3 {
+    margin: 0 0 0 220px;
+    font-size: 18pt;
+    color: grey;
+}
+#lobby-header-bottom {
+    width: 100%;
+    min-height: 50px;
+    margin-top: 86px;
+    background-color: darkred;
+}
+#sort {
+    display: inline-block;
+    margin-left: 48px;
+}
+#sort button {
+    min-width: 141.99px;
+    padding: 0 14px;
+    font-size: 16pt;
+    text-align: left;
+}
+#sort button img {
+    width: 20px;
+    height: auto;
+    margin-left: 5px;
+    margin-bottom: 1px;
+}
+#sort p {
+    margin: 0 0 5px 0;
+    color: white;
+    font-size: 12pt;
+}
+#dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: coral;
+}
+.dropdown-content a {
+    padding: 5px 50px 5px 15px;
+    display: block;
+    font-size: 16pt;
+    text-decoration: none;
+}
+.dropdown-content a:hover {background-color: #ff6e39;}
+.dropdown-visible {display: block;}
+/******************************
+******************************/
+
+
+
+/***************************
+*******LOBBY LISTING CSS******
+****************************/
+#lobby-list {
+    width: 100%;
+    min-height: 488px;
+    height: auto;
+    text-align: center;
+    background-color: lightgreen;
+}
+.box {
+    display: inline-block;
+    width: 28%;
+    min-height: 200px;
+    margin: 25px 21px;
+    background-color: darkgreen;
+}
+/******************************
+******************************/
