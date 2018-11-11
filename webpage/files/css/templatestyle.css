@@ -23,6 +23,14 @@ input[type=image]:active {
   border-bottom: 3px solid #e14658;
 }
 
+#logo img {
+  height: 45px; 
+  position: absolute;
+  top: 0;
+  left: calc(10vw - 57.795px);
+  width: auto;
+}
+
 #addicon:hover {
   border-bottom: 2px solid #e14658;
   height: 42px;
@@ -94,10 +102,6 @@ input[type=image]:active {
 }
 
 #topbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 9000;
   background-color: #232323;
   height: 45px;
   border-bottom: 1px solid black;
