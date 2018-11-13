@@ -8,10 +8,10 @@
                 done.onclick = function() {
                         modal.style.display = "none";
                 }
-                $( "#baseball" ).click(function() {
+                $( "#baseball2" ).click(function() {
                         $( this ).toggleClass( "active" ); 
                 });
-                $( "#basketball" ).click(function() {
+                $( "#basketball2" ).click(function() {
                         $( this ).toggleClass( "active" ); 
                 });
                 $( "#soccerball" ).click(function() {
