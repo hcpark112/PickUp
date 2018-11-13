@@ -63,7 +63,7 @@ body{
     right: 0;
   }
 
-#baseball{
+#baseball2{
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     border-radius: 10%;
@@ -72,7 +72,7 @@ body{
     
 
 }
-#basketball{
+#basketball2{
 margin-top: 10px !important;
 margin-bottom: 10px !important;
 border-radius: 10%;
@@ -113,10 +113,10 @@ border-radius: 10%;
 width: 85px;
 background-color: #00303f;
 }
-#baseball:hover{
+#baseball2:hover{
     border: 3px solid #e14658
 }
-#basketball:hover{
+#basketball2:hover{
     border: 3px solid #e14658
 }
 #soccerball:hover{
@@ -131,10 +131,10 @@ background-color: #00303f;
 #plus2:hover{
     border: 3px solid #e14658
 }
-#baseball.active{
+#baseball2.active{
     border: 3px solid #e14658
 }
-#basketball.active{
+#basketball2.active{
     border: 3px solid #e14658
 }
 #soccerball.active{
