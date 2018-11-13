@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang = "en">
+	<head>
+        <title>Sign up - PickUp</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+
+        </style>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">      
+        <link rel="stylesheet" type="text/css" href="./files./css/SignUp2.css">
+        <link rel="stylesheet" type="text/css" href="./files./css/Popup.css">
+        
+        
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+    </head>
+    <body>
+        
+            <div id = "top">
+                    <p>
+                    PickUp
+                    </p>
+            </div>
+            <div id="box">
+                    <div id="tab">
+                            <div class="ui big breadcrumb">
+                                    <a class="section"id="tableft">Personal Information</a>
+                                    <i class="right chevron icon divider" id="tab2"></i>
+                                    <div class="active section" id="tabright">Preferred Sports</div>
+                                    </div>
+                        </div>
+                        
+                        <div id="rightbox">
+                                <p id="label">
+                                        <br>
+                                        Skill Level:
+                                        
+                                </p>
+                                <p id="test">Test1</p>
+                                <p id="test2">Test2</p>
+                                <p id="test3">Test3</p>
+                                <p id="test4">Test4</p>
+                                <p id="test5">Test5</p>
+                                <p id="test6">Test6</p>
+                                
+                                <button class="button" style="vertical-align:right"><span>Next </span></button>
+                        </div>
+                        <div id="leftbox">
+                                        <p id="label">
+                                                <br>
+                                                Sports:
+                                                <p id="test7">Test1</p>
+                                                <p id="test8">Test2</p>
+                                                <p id="test9">Test3</p>
+                                                <p id="test10">Test4</p>
+                                                <p id="test11">Test5</p>
+                                                <p id="test12">Test6</p>
+                                                <p id="addsport">
+                                                <button class="button3" id="myBtn"><span><img id="plus" src="./files./images/+.png">Add a Sport</span></button>
+                                                </p>
+                                        </p>
+                                        
+                                        <button class="button2" style="vertical-align:right"><span>Back </span></button>
+                                </div>
+                <div id="myModal" class="modal">
+                                <p>
+                                <h1 id="popuph1">Select your sports!</h1>
+                                </p>
+                                <div id="topimg">
+                                        <img onclick="baseballShow()" id="baseball2" src="./files./images/baseball2.png">
+                                        <img onclick="basketballShow()" id="basketball2" src="./files./images/basketball2.png">
+                                        <img onclick="soccerballShow()" id="soccerball" src="./files./images/soccerball.png">
+                                </div>
+                                <div id="bottomimg">
+                                        <img onclick="tennisShow()" id="tennis" src="./files./images/tennis2.png">
+                                        <img onclick="volleyballShow()" id="volleyball" src="./files./images/volleyball.png">
+                                        <img onclick="plusShow()" id="plus2" src="./files./images/+.png">
+                                </div>
+                                <p>
+                                (Don't worry you can do more of this later)
+                                </p>
+                                <button id="popupbutton" style="vertical-align:right" class="close"><span>Done </span></button>
+                        </div>
+                </div>
+                    
+                
+                </div>
+                <script src="./files/js/SignUp2.js"></script>
+        </body>
+    </html>
