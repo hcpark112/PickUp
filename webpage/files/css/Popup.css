@@ -1,0 +1,151 @@
+
+body{
+    text-align: center;
+    width: 100vw;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+#popupbox{
+    background-color: white;
+    box-shadow: 5px 5px 20px;
+    margin-left: 37%;
+    margin-right: 37%;
+    border-radius: 2%;
+    letter-spacing: 2px;
+    
+}
+#popuph1{ 
+
+    cursor: pointer;
+    font-size: 30px;
+}   
+#popupbutton {
+    margin-top: 10px; 
+    border-radius: 4px;
+    background-color: #e14658;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 7px;
+    margin-top: 15px; 
+    box-shadow: 2px 3px 5px; 
+  }
+  
+#popupbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    color: #00303f;
+    font-weight: bold;
+}
+#popupbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    transition: 0.5s;
+  }
+  
+  #popupbutton:hover span {
+    padding-right: 15px;
+  }
+  
+  #popupbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+#baseball{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    border-radius: 10%;
+    width: 90px;
+    background-color: #00303f;
+    
+
+}
+#basketball{
+margin-top: 10px !important;
+margin-bottom: 10px !important;
+border-radius: 10%;
+width: 90px;
+background-color: #00303f;
+
+}
+#soccerball{
+margin-top: 10px !important;
+margin-bottom: 10px !important;
+border-radius: 10%;
+width: 90px;
+background-color: #00303f;
+
+}
+#tennis{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    border-radius: 10%;
+    width: 90px;
+    background-color: #00303f;
+    
+
+}
+#volleyball{
+margin-top: 10px !important;
+margin-bottom: 10px !important;
+border-radius: 10%;
+width: 90px;
+background-color: #00303f;
+
+
+}
+#plus2{
+margin-top: 10px !important;
+margin-bottom: 10px !important;
+border-radius: 10%;
+width: 85px;
+background-color: #00303f;
+}
+#baseball:hover{
+    border: 3px solid #e14658
+}
+#basketball:hover{
+    border: 3px solid #e14658
+}
+#soccerball:hover{
+    border: 3px solid #e14658
+}
+#volleyball:hover{
+    border: 3px solid #e14658
+}
+#tennis:hover{
+    border: 3px solid #e14658
+}
+#plus2:hover{
+    border: 3px solid #e14658
+}
+#baseball.active{
+    border: 3px solid #e14658
+}
+#basketball.active{
+    border: 3px solid #e14658
+}
+#soccerball.active{
+    border: 3px solid #e14658
+}
+#tennis.active{
+    border: 3px solid #e14658
+}
+#volleyball.active{
+    border: 3px solid #e14658
+}
+#plus2.active{
+    border: 3px solid #e14658
+}
