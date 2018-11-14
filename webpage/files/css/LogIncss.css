@@ -267,7 +267,16 @@ body{
         right: 0;
       }
       .field{
-        width: 320px;
-        margin: 0em 15em 2em !important;
+        width: 40% !important;
+        margin: 0em 0em 2em !important;
+      }
+      .ui.big.form{
+        text-align: center !important;
+       
+        margin-left: 30% !important; 
+        margin-right: -30% !important; 
+      }
+      #Email{
+
       }
 }
