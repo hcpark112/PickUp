@@ -5,17 +5,14 @@ body {
 span {cursor: default;}
 a:link {color: #efefef;}
 a:visited{color: #efefef;}
+#categories a:link {color: black;}
+#categories a:visited{color: black;}
 input[type=image]:hover{filter: drop-shadow(2px 2px 1px black);}
 input[type=image]:active {background-color: white;}
-.friend:hover{border-bottom: 3px solid #e14658;}
-#addicon:hover {
-  border-bottom: 2px solid #e14658;
-  height: 42px;
-}
-#friendstab img:hover {filter: drop-shadow(2px 2px 1px black);}
+.lobby:hover{border-bottom: 3px solid #e14658;}
 #topbar div a:hover {border-bottom: 3px solid #e14658;}
 #logo img {
-  height: 45px; 
+  height: 45px;
   position: absolute;
   top: 0;
   left: calc(10vw - 57.795px);
@@ -32,6 +29,13 @@ input[type=image]:active {background-color: white;}
   width: 80vw;
   float: right;
 }
+.roomicon {
+  border-radius: 25%;
+  margin: 0 10.5%;
+  width: 30px;
+  height: 30px;
+}
+.namediv {margin-top: 7px;}
 .namelink {
   width: auto;
   text-decoration: none;
@@ -66,14 +70,6 @@ input[type=image]:active {background-color: white;}
   color: #efefef;
   font-size: 24pt;
   line-height: 65px;
-}
-#friendstab {
-  background-color: #00303f;
-  position: absolute;
-  bottom: 0;
-  height: 50%;
-  width: 100%;
-  z-index: 500;
 }
 #topbar {
   background-color: #232323;
@@ -129,8 +125,8 @@ input[type=text] {
   font-style: italic;
   border-top: none;
   border-left: none;
-  border-right: none; 
-  border-bottom: 4px solid #f2d388; 
+  border-right: none;
+  border-bottom: 4px solid #f2d388;
   background-color: #00303f;
   height: 5vh;
   width: 100%;
@@ -200,14 +196,6 @@ input[type=button] {
   color: #efefef;
   position: relative;
 }
-#friendstab a img {
-  width: 40px;
-  height: 44px;
-  position: absolute;
-  border-top: 1px solid #efefef;
-  bottom: 0;
-  right: 0;
-}
 .friend {
   width: 20vw;
   display: inline-flex;
@@ -262,8 +250,8 @@ input[type=button] {
   width: 40%;
   height: calc(40% - 23px);
   position: absolute;
-  right: 0; 
-  bottom: 10%; 
+  right: 0;
+  bottom: 10%;
 }
 #teamstwo {
   background-color: #dedede;
@@ -287,7 +275,7 @@ input[type=button] {
 #legend {margin-top: 0;}
 #legend div {text-align: left;}
 #karma, .playerkarmadiv{
-  width: 30%; 
+  width: 30%;
   background-color: #f2d388;
 }
 #karma {
@@ -299,7 +287,7 @@ input[type=button] {
   border-left: none;
 }
 #players, .playernamediv{
-  width: 70%; 
+  width: 70%;
   background-color: #efefef;
 }
 .team {color: #00303f;}
@@ -343,10 +331,10 @@ input[type=button] {
   bottom: 0;
 }
 #joinbutton {
-  background-color: #11414f;
+  background-color: #e14658;
   max-width: 200px;
   width: 200px;
-  height: 80%;
+  height: 65%;
   margin: auto;
   border: 2px solid #00303f;
   color: #efefef;
@@ -355,5 +343,16 @@ input[type=button] {
 }
 #joinbutton:hover {
   filter: drop-shadow(2px 2px 1px black);
-  background-color: #e14658;
+  background-color: #11414f;
+}
+.lobby {
+  width: 20vw;
+  display: inline-flex;
+  background-color: #11414f;
+  font-weight: bold;
+  color: #efefef;
+  margin-top: 10px;
+  padding: 15px 0;
+  font-size: 12pt;
+  cursor: pointer;
 }
