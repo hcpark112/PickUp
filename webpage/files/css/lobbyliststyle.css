@@ -54,10 +54,13 @@ html, body {
     font-size: 16pt;
     color: white;
     text-align: left;
-}
-#sort button:hover, #sort button:focus {
     outline: 0;
     border-bottom: solid #e14658 4px;
+}
+#sort button:hover, #sort button:focus {
+    cursor: pointer;
+    outline: 0;
+    border-bottom: solid #f45a6c 4px;
 }
 #sort p {
     margin: 0 0 5px 0;
@@ -79,23 +82,34 @@ html, body {
     font-size: 16pt;
     text-decoration: none;
 }
-.dropdown-content a:hover {background-color: #f14e61;}
+.dropdown-content a:hover {background-color: #f45a6c;}
 .dropdown-visible {display: block;}
 #location {
     float: right;
     margin-top: 15px;
-    margin-right: 48px;
+    margin-right: 5px;
     color: white;
 }
 #location img {
     float: left;
-    width: 15px;
+    width: 20px;
     height: auto;
 }
 #location div {
     display: inline-block;
     margin: 2px 0 0 5px;
 }
+#location input {
+    height: 30px;
+    width: 70%;
+    text-align: center;
+    background-color: transparent;
+    font-style: normal;
+    font-size: 16pt;
+    border-bottom: solid #e14658 4px;
+}
+#location input:hover, #location input:focus {border-bottom: solid #f45a6c 4px;}
+#location ::placeholder {font-size: 16pt;}
 /******************************
 ******************************/
 

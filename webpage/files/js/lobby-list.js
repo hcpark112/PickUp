@@ -6,7 +6,7 @@ $(document).ready(function() {
   $("#drop a").click(function() {
       $("#sort button").html($(this).html());
     });
-
+  
 });
 
 //creates a random number of lobbies if no argument given,
@@ -35,7 +35,7 @@ function createLobby() {
 
   var eventDateDiv = $("<div class = 'event-date'></div>");
   $(boxDiv).append(eventDateDiv);
-  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div>January 1, 2019</div>");
+  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div>" + randDate() + "</div>");
 
   var eventLocationDiv = $("<div class = 'event-location'></div>");
   $(boxDiv).append(eventLocationDiv);
@@ -46,15 +46,76 @@ function createLobby() {
 
   $(boxDescriptionDiv).append("<div class = 'box-profile'><img src = './files/images/person.png' alt = 'pic'></div>");
   $(boxDescriptionDiv).append("<div class = 'user-name'>Username</div>");
-  $(boxDescriptionDiv).append("<div class = 'capacity'>12/24</div>");
+  $(boxDescriptionDiv).append("<div class = 'capacity'>" + randSize() + "</div>");
 }
 
+//creates a random date for the lobby
 function randDate() {
-  //creates a random date for the lobby
+  
+  var month = monthConvert(((Math.random() * 12) + 1) | 0);
+  var day = ((Math.random() * 30) + 1) | 0;
+
+  return month + " " + day + ", 2019";
 }
 
+//converts a number to it's corresponding month
+function monthConvert(monthNum) {
+
+  var month;
+  switch(monthNum) {
+    case 1:
+      month = "January";
+      break;
+    case 2:
+      month = "February";
+      break;
+    case 3:
+      month = "March";
+      break;
+    case 4:
+      month = "April";
+      break;
+    case 5:
+      month = "May";
+      break;
+    case 6:
+      month = "June";
+      break;
+    case 7:
+      month = "July";
+      break;
+    case 8:
+      month = "August";
+      break;
+    case 9:
+      month = "September";
+      break;
+    case 10:
+      month = "October";
+      break;
+    case 11:
+      month = "November";
+      break;
+    case 12:
+      month = "December";
+      break;
+    default:
+      throw "Error: Not valid month number";  
+  }
+
+  return month;
+}
+
+//creates a random player size for the lobby
 function randSize() {
-  //creates a random player size for the lobby
+  var max;
+  do {
+    max = ((Math.random() * 24) + 4) | 0;
+  }
+  while(max % 2 != 0);
+  var curr = ((Math.random() * max)) | 0;
+
+  return "" + curr + "/" + max;
 }
 
 //toggles drop down when button is clicked
