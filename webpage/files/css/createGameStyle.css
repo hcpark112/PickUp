@@ -36,17 +36,31 @@ html, body {
 #Inner-Content form {
     width: 80%;
     background-color: darkcyan;
-    margin: 40px auto 0 auto;
+    margin: 35px auto 0 auto;
 }
 form label {
     display: block;
     margin-bottom: 5px;
     border-bottom: solid 2px black;
     padding-left: 30px;
-    font-size: 28pt;
+    font-size: 24pt;
     font-weight: bold;
     color: white; 
 }
-input {}
-input::placeholder {}
+input {
+    margin: 0 0 15px 30px;
+    padding: 5px;
+    font-size: 16pt;
+}
+input[type=text] {
+    width: 70%;
+}
+input::placeholder {
+    font-size: 16pt;
+}
+select {
+    margin: 0 0 15px 30px;
+    padding: 5px;
+    font-size: 16pt;
+}
 /****************************/
