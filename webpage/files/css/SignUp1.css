@@ -221,7 +221,15 @@ h1{
   #tableft{
     text-align: center;
     margin-left: -50px !important;
-    font-size: 15pt
+    font-size: 15pt;
+    cursor: default;
+  }
+  #logo {
+    height: 45px;
+    position: absolute;
+    top: 0;
+    left: calc(10vw - 57.795px);
+    width: auto;
   }
   @media only screen and (max-width: 1500px)and (min-width: 200px)  {
     #date{
