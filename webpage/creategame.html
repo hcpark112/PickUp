@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang = "en">
+  <head>
+    <title>PickUp - Create a Game</title>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./files/css/templatestyle.css">
+    <link rel="stylesheet" type="text/css" href="./files/css/createGameStyle.css">
+  </head>
+  <body>
+    <div id="content" class="maxWidth maxHeight">
+      <div>
+        <div id="topbar">
+            <a href="https://www.google.com"><span>PickUp</span></a>
+            <div>
+              <a href="https://www.google.com"><img class="topimg" id="profile" src="./files/images/profile.png" alt="profile" /></a>
+              <a href="https://www.google.com"><img class="topimg" src="./files/images/settings.png" alt="settings" /></a>
+            </div>
+          </div>
+          <div id="friendstitle">
+            <span>
+              Games
+            </span>
+          </div>
+          <div id="leftbar">
+          </div>
+      </div>
+      <div id = "Inner-Content">
+        <div id = "Create-Header">
+          <h1>Create a Game</h1>
+        </div>
+        <form>
+          <div id = "Lobby-Name">
+            <label for = "LobbyName">Lobby Name</label>
+            <input type = "text" name = "LobbyName" placeholder = "Enter a name for your lobby">
+          </div>
+          <div id = "Sport-List">
+            <label for = "SportList">Choose Sport</label>
+            <select name = "SportList">
+              <option value = "">Select a Sport</option>
+              <option value = "Basketball">Basketball</option>
+              <option value = "Football">Football</option>
+              <option value = "Soccer">Soccer</option>
+              <option value = "Baseball">Baseball</option>
+              <option value = "Volleyball">Volleyball</option>
+              <option value = "Tennis">Tennis</option>
+              <option value = "Badminton">Badminton</option>
+            </select>
+          </div>
+          <div id = "Location">
+            <label for = "Location">Location</label>
+            <input type = "text" name = "Location" placeholder = "Enter an address">
+          </div>
+          <div id = "Set-Date">
+            <label for = "Date">Date and Time</label>
+            <input type = "date" name = "Date">
+            <input type = "time" name = "Date">
+            <input type = "range" name = "Date">
+          </div>
+          <div id = "Location-Image">
+            <label for = "Image">Choose an Image</label>
+            <input type = "file" name = "Image">
+            <img src = "" alt = "uploaded picture">
+            <input type = "submit" value = "Upload">
+            <input type = "submit" value = "Use Default based on Location">
+          </div>
+          <input type = "submit">
+        </form>
+      </div>
+    </div>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src = "./files/js/SideAndTopBars.js"></script>
+  </body>
+</html>

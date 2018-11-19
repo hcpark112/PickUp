@@ -1,0 +1,52 @@
+/**STYLE FOR CREATE A GAME PAGE**/
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+#Inner-Content {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    height: calc(100% - 45px);
+    cursor: default;
+    background-color: darkslateblue;
+}
+
+/***************************
+*******CREATE-HEADER********
+****************************/
+#Create-Header {
+    width: 100%;
+    height: 150px;
+    background-color: darkseagreen;
+}
+#Create-Header h1 {
+    display: inline-block;
+    margin: 40px 0 0 40px;
+    font-size: 36pt;
+    color: white;
+}
+/***************************/
+
+/***************************
+************FORM************
+****************************/
+#Inner-Content form {
+    width: 80%;
+    background-color: darkcyan;
+    margin: 40px auto 0 auto;
+}
+form label {
+    display: block;
+    margin-bottom: 5px;
+    border-bottom: solid 2px black;
+    padding-left: 30px;
+    font-size: 28pt;
+    font-weight: bold;
+    color: white; 
+}
+input {}
+input::placeholder {}
+/****************************/
