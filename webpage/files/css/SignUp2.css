@@ -221,8 +221,20 @@ h1{
     left: 44.8%;
     box-shadow: 5px 5px 20px; 
     
+    
   }
-  #label{
+  #rightbox{
+    margin-bottom: 25px;
+  }
+  #label1{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: default;
+    
+  }
+  #label2{
+    margin-bottom: 9px;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -295,3 +307,27 @@ h1{
 #ex1Slider .slider-selection {
 	background: #BABABA;
 }
+.rangeslider__fill {
+  background: #e14658 !important;
+  position: absolute;
+}
+.rangeslider {
+  background: #e6e6e6  !important;
+  position: relative;
+  margin-bottom: 35px;
+  padding: 0px;
+}
+.rangeslider__handle {
+  background: #f2d388 !important;
+  border: 1px solid #f2d388 !important;
+}
+
+#leftbox > p:not(:first-child){
+  margin-bottom: 26.6px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: default;
+  padding: 0px;
+}
+
