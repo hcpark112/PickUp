@@ -2,113 +2,67 @@
 <html>
 <head>
     <meta charset="utf-8">
-
-    <!--  Init stuff goes here -->
-
-  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDHfWAgqpl8LiSGknlm0G0tYdgCekTHLDg",
-      authDomain: "pickup-1541825853857.firebaseapp.com",
-      databaseURL: "https://pickup-1541825853857.firebaseio.com",
-      projectId: "pickup-1541825853857",
-      storageBucket: "pickup-1541825853857.appspot.com",
-      messagingSenderId: "51007491965"
-    };
-    firebase.initializeApp(config);
-  </script>
 </head>
 <body>
     <!-- DOM element goes here -->
-    <h1 id="abc"> hey guys </h1>
+    <h1 id="abc"> hey guy </h1>
+    <h1 id="abc2"> hey guy </h1>
 
-    <!-- app.js goes here -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script>
-    var db = firebase.firestore();
-    db.settings({
-      timestampsInSnapshots: true
-    });
-    var docRef = db.collection("PickUp");
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD0bFMT_-dlAfllbPc2rJXhZRnrJIERwv8",
+        authDomain: "pickup-1541825853857.firebaseapp.com",
+        databaseURL: "https://pickup-1541825853857.firebaseio.com",
+        projectId: "pickup-1541825853857",
+        storageBucket: "pickup-1541825853857.appspot.com",
+        messagingSenderId: "51007491965"
+      };
+  	  firebase.initializeApp(config);
 
-    docRef.doc("SF").set({
-        name: "San Francisco", state: "CA", country: "USA",
-        capital: false, population: 860000,
-        regions: ["west_coast", "norcal"] });
-    docRef.doc("LA").set({
-        name: "Los Angeles", state: "CA", country: "USA",
-        capital: false, population: 3900000,
-        regions: ["west_coast", "socal"] });
-    docRef.doc("DC").set({
-        name: "Washington, D.C.", state: null, country: "USA",
-        capital: true, population: 680000,
-        regions: ["east_coast"] });
-    docRef.doc("TOK").set({
-        name: "Tokyo", state: null, country: "Japan",
-        capital: true, population: 9000000,
-        regions: ["kanto", "honshu"] });
-    docRef.doc("BJ").set({
-        name: "Beijing", state: null, country: "China",
-        capital: true, population: 21500000,
-        regions: ["jingjinji", "hebei"] });
+      var dbRef = firebase.database();
+      var usersRef = firebase.database().ref().child('PickUp').child('Users');
+      var gamesRef = firebase.database().ref().child('PickUp').child('Games');
+      var test = document.getElementById('abc');
+      var text = firebase.database().ref().child('text').child('test').child('test1').child('email');
 
-    var docRef1 = db.collection("PickUp").doc("SF");
-
-    docRef1.get().then(function(doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-
-    // docRef.add({
-    //     first: "Ada",
-    //     last: "Lovelace",
-    //     born: 1815
-    // })
-    // .then(function(docRef) {
-    //     console.log("Document written with ID: ", docRef.id);
-    // })
-    // .catch(function(error) {
-    //     console.error("Error adding document: ", error);
-    // });
-
-    // Add a second document with a generated ID.
-    // docRef.add({
-    //     first: "Alan",
-    //     middle: "Mathison",
-    //     last: "Turing",
-    //     born: 1912
-    // })
-    // .then(function(docRef) {
-    //     console.log("Document written with ID: ", docRef.id);
-    // })
-    // .catch(function(error) {
-    //     console.error("Error adding document: ", error);
-    // });
-
-    db.collection("PickUp").get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
+      function createUser(userNum, fullName, password, email, age, gender, birthdate, base, basket, foot, soccer, volley) {
+        usersRef.child(userNum).set({
+          fullname: fullName,
+          password: password,
+          email: email,
+          age: age,
+          gender: gender,
+          birthdate: birthdate,
+          sports: {
+            baseball: base,
+            basketball: basket,
+            football: foot,
+            soccer: soccer,
+            volleyball: volley
+          }
         });
-    });
-    var messageRef = db.collection('PickUp').doc('BJ')
-                .collection('country');
-    console.log(messageRef);
+      }
 
+      function createGame(gameNum, date, location, owner, sport){
+        gamesRef.child(gameNum).set({
+          date: date,
+          location: location,
+          owner: owner,
+          sport: sport
+        });
+      }
 
-    // var data = doc.
+      createUser('user1', 'Kevin Park', '12345678', 'kpark@gmail.com', '23', 'male', '02/01/1995', '8', '7', '6', '5', '0');
+      createUser('user2', 'William Loftus', '87654321', 'wlofty@gmail.com', '19', 'male', '11/11/1999', '6', '8', '3', '0', '5');
+      createUser('user3', 'Alec Martin', '12345678', 'amartin@gmail.com', '18', 'male', '04/21/2000', '5', '4', '0', '7', '3');
 
-    //on() is called a listener
-    //listens for any change in value
-    //then takes a snapshot, and then do a function
-    //assign tot he value of DB to h1
+      createGame('game2', '12/25/2018', 'BCIT', 'me', 'soccer');
+
+      gamesRef.child('game1').child('date').on('value', snap => abc.innerText = "Date: " + snap.val());
+      gamesRef.child('game1').child('location').on('value', snap => abc2.innerText = "location: " + snap.val());
+
     </script>
-
 </body>
 </html>
