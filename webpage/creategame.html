@@ -29,39 +29,44 @@
         <div id = "Create-Header">
           <h1>Create a Game</h1>
         </div>
-        <form>
-          <div id = "Lobby-Name">
-            <label for = "LobbyName">Lobby Name</label>
-            <input type = "text" name = "LobbyName" placeholder = "Enter a name for your lobby">
-          </div>
-          <div id = "Sport-List">
-            <label for = "SportList">Select Sport</label>
-            <select name = "SportList">
-              <option value = "">Select a Sport</option>
-              <option value = "Basketball">Basketball</option>
-              <option value = "Football">Football</option>
-              <option value = "Soccer">Soccer</option>
-              <option value = "Baseball">Baseball</option>
-              <option value = "Volleyball">Volleyball</option>
-              <option value = "Tennis">Tennis</option>
-              <option value = "Badminton">Badminton</option>
-            </select>
-          </div>
-          <div id = "Location">
-            <label for = "Location">Location</label>
-            <input type = "text" name = "Location" placeholder = "Enter an address">
-          </div>
-          <div id = "Set-Date">
-            <label for = "Date">Select Date</label>
-            <input type = "date" name = "Date">
-            <input type = "time" name = "Date">
-          </div>
-          <div id = "Set-Length">
-            <label for = "Length">Set Length</label>
-            <input type = "range" name = "Date" min = "1" max = "4">
-          </div>
-          <input type = "submit">
-        </form>
+        <div id = bar></div>
+        <div id = "details">
+          <form>
+            <div id = "Lobby-Name">
+              <label for = "LobbyName">Lobby Name</label>
+              <input type = "text" name = "LobbyName" placeholder = "Enter a name for your lobby">
+            </div>
+            <div id = "Sport-List">
+              <label for = "SportList">Sport and Size</label>
+              <select name = "SportList">
+                <option value = "">Select a Sport</option>
+                <option value = "Basketball">Basketball</option>
+                <option value = "Football">Football</option>
+                <option value = "Soccer">Soccer</option>
+                <option value = "Baseball">Baseball</option>
+                <option value = "Volleyball">Volleyball</option>
+                <option value = "Tennis">Tennis</option>
+                <option value = "Badminton">Badminton</option>
+              </select>
+              <input type = "number" name = "Size" id = "size" min = "2" max = "24" value = "12">
+              <div id = "caption"> Max Players</div>
+            </div>
+            <div id = "Location">
+              <label for = "Location">Location</label>
+              <input type = "text" name = "Location" placeholder = "Enter an address">
+            </div>
+            <div id = "Set-Date">
+              <label for = "Date">Date and Duration</label>
+              <input type = "date" name = "Date" class = "date-duration">
+              <input type = "time" name = "Time" class = "date-duration">
+              <br/>
+              <input type = "number" name = "Duration" min = "1" max = "4" value="1" class = "date-duration">
+              <div id = "caption"> Hour(s)</div>
+            </div>
+            <input type = "submit">
+            <input type = "reset" value = "Clear">
+          </form>
+        </div>
       </div>
     </div>
       
