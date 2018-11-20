@@ -13,6 +13,63 @@ html, body {
     cursor: default;
 }
 /***************************
+*SPECIAL TEMPLATE STYLE CSS*
+****************************/
+input[type=text] {
+    outline: none;
+    color: #efefef;
+    font-size: 18pt;
+    font-style: italic;
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    border-bottom: 4px solid #f2d388; 
+    background-color: #00303f;
+    height: 5vh;
+    width: 100%;
+}
+input[type=image] {
+    outline: none;
+    border: 2px solid black;
+    background-color: #f2d388;
+    position: absolute;
+    border-radius: 20%;
+    top: 15%;
+    right: 3%;
+    width: 6%;
+    min-width: 18px;
+    min-height: 18px;
+    height: 70%;
+}
+input[type=image]:hover{
+    filter: drop-shadow(2px 2px 1px black);
+}
+input[type=image]:active {
+    background-color: white;
+}
+input::placeholder {
+    color: #efefef;
+    font-size: 18pt;
+}
+input[type=button] {
+    outline: none;
+    border: 1px solid black;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #efefef;
+    background-color: #e14658;
+    position: absolute;
+    bottom: 90%;
+    z-index: 500;
+    left: 0;
+    right: 0;
+    height: 50px;
+    width: 200px;
+    margin: 0 auto;
+}
+/***************************/
+
+/***************************
 *******LOBBY HEADER CSS******
 ****************************/
 #lobby-header {
