@@ -27,14 +27,14 @@
       var test = document.getElementById('abc');
       var text = firebase.database().ref().child('text').child('test').child('test1').child('email');
 
-      function createUser(userNum, fullName, password, email, age, gender, birthdate, base, basket, foot, soccer, volley) {
+      function createUser(userNum, fullName, password, email, age, gender, base, basket, foot, soccer, volley) {
         usersRef.child(userNum).set({
           fullname: fullName,
           password: password,
           email: email,
           age: age,
           gender: gender,
-          birthdate: birthdate,
+          karma: "5000",
           sports: {
             baseball: base,
             basketball: basket,
@@ -45,20 +45,29 @@
         });
       }
 
-      function createGame(gameNum, date, location, owner, sport){
+      function createGame(gameNum, date, location, owner, sport, min, max, owner, capacity){
         gamesRef.child(gameNum).set({
           date: date,
           location: location,
           owner: owner,
-          sport: sport
-        });
+          capacity: capacity,
+          sport: sport,
+          owner: owner,
+          members: {
+            member1: owner
+          },
+          levels: {
+            min: min,
+            max: max,
+          }
+        }); 
       }
 
       createUser('user1', 'Kevin Park', '12345678', 'kpark@gmail.com', '23', 'male', '02/01/1995', '8', '7', '6', '5', '0');
       createUser('user2', 'William Loftus', '87654321', 'wlofty@gmail.com', '19', 'male', '11/11/1999', '6', '8', '3', '0', '5');
       createUser('user3', 'Alec Martin', '12345678', 'amartin@gmail.com', '18', 'male', '04/21/2000', '5', '4', '0', '7', '3');
 
-      createGame('game2', '12/25/2018', 'BCIT', 'me', 'soccer');
+      createGame('game2', '12/25/2018', 'BCIT', 'me', 'soccer', "1", "4", "user1", "8");
 
       gamesRef.child('game1').child('date').on('value', snap => abc.innerText = "Date: " + snap.val());
       gamesRef.child('game1').child('location').on('value', snap => abc2.innerText = "location: " + snap.val());
