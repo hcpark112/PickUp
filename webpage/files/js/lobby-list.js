@@ -1,12 +1,22 @@
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyD0bFMT_-dlAfllbPc2rJXhZRnrJIERwv8",
+  authDomain: "pickup-1541825853857.firebaseapp.com",
+  databaseURL: "https://pickup-1541825853857.firebaseio.com",
+  projectId: "pickup-1541825853857",
+  storageBucket: "pickup-1541825853857.appspot.com",
+  messagingSenderId: "51007491965"
+};
+firebase.initializeApp(config);
+var dbRef = firebase.database();
+var gamesRef = firebase.database().ref().child('PickUp').child('Games');
+
 $(document).ready(function() {
-
-  numLobby(12);
-
+  // numLobby(12);
   //replaces drop down button text with selection
   $("#drop a").click(function() {
       $("#sort button").html($(this).html());
     });
-  
 });
 
 //creates a random number of lobbies if no argument given,
@@ -27,6 +37,9 @@ function numLobby() {
 
 //creates a lobby
 function createLobby() {
+  var date = randDate();
+  var size = randSize();
+
   var lobbyDiv = $("<div class = 'lobby'></div>");
   $("#lobby-list-content").append(lobbyDiv);
 
@@ -35,7 +48,7 @@ function createLobby() {
 
   var eventDateDiv = $("<div class = 'event-date'></div>");
   $(boxDiv).append(eventDateDiv);
-  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div>" + randDate() + "</div>");
+  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div>" + date + "</div>");
 
   var eventLocationDiv = $("<div class = 'event-location'></div>");
   $(boxDiv).append(eventLocationDiv);
@@ -46,12 +59,12 @@ function createLobby() {
 
   $(boxDescriptionDiv).append("<div class = 'box-profile'><img src = './files/images/person.png' alt = 'pic'></div>");
   $(boxDescriptionDiv).append("<div class = 'user-name'>Username</div>");
-  $(boxDescriptionDiv).append("<div class = 'capacity'>" + randSize() + "</div>");
+  $(boxDescriptionDiv).append("<div class = 'capacity'>" + size + "</div>");
 }
 
 //creates a random date for the lobby
 function randDate() {
-  
+
   var month = monthConvert(((Math.random() * 12) + 1) | 0);
   var day = ((Math.random() * 30) + 1) | 0;
 
@@ -100,7 +113,7 @@ function monthConvert(monthNum) {
       month = "December";
       break;
     default:
-      throw "Error: Not valid month number";  
+      throw "Error: Not valid month number";
   }
 
   return month;
@@ -110,7 +123,7 @@ function monthConvert(monthNum) {
 function randSize() {
   var max;
   do {
-    max = ((Math.random() * 24) + 4) | 0;
+    max = ((Math.random() * 10) + 4) | 0;
   }
   while(max % 2 != 0);
   var curr = ((Math.random() * max)) | 0;
@@ -126,7 +139,7 @@ function dropDown() {
 //closes drop down when user clicks somewhere else on the page
 window.onclick = function(event) {
     if (!event.target.matches("#sort button")) {
-  
+
       var dropdowns = document.getElementsByClassName("dropdown-content");
       var i;
       for (i = 0; i < dropdowns.length; i++) {
@@ -137,3 +150,114 @@ window.onclick = function(event) {
       }
     }
   }
+
+
+
+/******************************************************************************
+********************NEW JAVASCRIPT FOR FIREBASE INTEGRATION********************
+********************************************************************************/
+
+/*The array of lobby objects.*/
+var lobbyArr = [];
+
+/**
+ * Retrieves the "games" branch of the firebase database. Then
+ * passes the branch/snapshot into the getLobbyListData function.
+ */
+gamesRef.on('child_added', function(snapshot) {
+  getLobbyListData(snapshot);
+});
+
+/**
+ * Pulls the capacity and date data from each game. It then passes this
+ * information to the createLobbyObj function.
+ *
+ * @param snapshot the "Games" branch containing list of all current games
+ */
+function getLobbyListData(snapshot) {
+  let count = 0, hasDate = false, hasCapacity = false;
+  var date, capacity;
+
+  /**
+   * The forEach loops through all the child nodes of
+   * each game in the database. The loop cancels once it has read
+   * the date and capacity keys, and pulled the values.
+   * Here is a sudo code example of how the loop works:
+   *
+   *          for(children of "Games") {
+   *            for(children of "Games.child") {
+   *              read in date and capacity
+   *
+   *              if (we have both)
+   *                exit this loop
+   *            }
+   *          }
+   */
+  snapshot.forEach(function(childSnapshot) {
+
+    if(childSnapshot.key == "date") {
+      date = childSnapshot.val();
+      hasDate = true;
+
+    } else if(childSnapshot.key == "capacity") {
+      capacity = childSnapshot.val();
+      hasCapacity = true;
+    }
+
+    if(hasDate && hasCapacity) {
+      createLobbyObj(date, capacity);
+      return true;
+    }
+  });
+}
+
+/**
+ * Pushes a JS Object into the lobbyArr array. The object represents a lobby.
+ * The lobby contains:
+ *      maxSize - The maximum number of players the lobby can hold.
+ *      date    - The date for the sport event.
+ *      html    - The html for the lobby div.
+ *
+ * @param date the Date of the lobby.
+ * @param capacity the max capacity of the lobby.
+ */
+function createLobbyObj(date, capacity) {
+  lobbyArr.push({
+    maxSize: capacity,
+    date   : date,
+    html   : createLobbyHTML(date, capacity)
+  });
+}
+
+/*
+ * Uses JQuery to create the HTML for a lobby div.
+ *
+ * @param date the Date of the lobby.
+ * @param capacity the max capacity of the lobby.
+ * @returns the Completed Lobby Div, with a unique date and capacity.
+ */
+function createLobbyHTML(date, capacity) {
+  let lobbyDiv = $("<div class = 'lobby'></div>");
+
+  let boxDiv = $("<div class = 'box'></div>");
+  $(lobbyDiv).append(boxDiv);
+
+  let eventDateDiv = $("<div class = 'event-date'></div>");
+  $(boxDiv).append(eventDateDiv);
+  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div>" + date + "</div>");
+
+  let eventLocationDiv = $("<div class = 'event-location'></div>");
+  $(boxDiv).append(eventLocationDiv);
+  $(eventLocationDiv).append("<img src = './files/images/mapmarker.png' alt = 'mapmarker'><div>Trout Lake Park</div>");
+
+  let boxDescriptionDiv = $("<div class = 'box-description'></div>");
+  $(lobbyDiv).append(boxDescriptionDiv);
+
+  $(boxDescriptionDiv).append("<div class = 'box-profile'><img src = './files/images/person.png' alt = 'pic'></div>");
+  $(boxDescriptionDiv).append("<div class = 'user-name'>Username</div>");
+  $(boxDescriptionDiv).append("<div class = 'capacity'>" + capacity + "</div>");
+
+  return lobbyDiv;
+}
+
+console.log(lobbyArr);
