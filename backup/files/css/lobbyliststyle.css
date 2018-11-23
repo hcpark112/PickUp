@@ -10,20 +10,79 @@ html, body {
     bottom: 0;
     width: 80%;
     height: calc(100% - 45px);
+    cursor: default;
 }
+/***************************
+*SPECIAL TEMPLATE STYLE CSS*
+****************************/
+input[type=text] {
+    outline: none;
+    color: #efefef;
+    font-size: 18pt;
+    font-style: italic;
+    border-top: none;
+    border-left: none;
+    border-right: none; 
+    border-bottom: 4px solid #f2d388; 
+    background-color: #00303f;
+    height: 5vh;
+    width: 100%;
+}
+input[type=image] {
+    outline: none;
+    border: 2px solid black;
+    background-color: #f2d388;
+    position: absolute;
+    border-radius: 20%;
+    top: 15%;
+    right: 3%;
+    width: 6%;
+    min-width: 18px;
+    min-height: 18px;
+    height: 70%;
+}
+input[type=image]:hover{
+    filter: drop-shadow(2px 2px 1px black);
+}
+input[type=image]:active {
+    background-color: white;
+}
+input::placeholder {
+    color: #efefef;
+    font-size: 18pt;
+}
+input[type=button] {
+    outline: none;
+    border: 1px solid black;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #efefef;
+    background-color: #e14658;
+    position: absolute;
+    bottom: 90%;
+    z-index: 500;
+    left: 0;
+    right: 0;
+    height: 50px;
+    width: 200px;
+    margin: 0 auto;
+}
+/***************************/
+
 /***************************
 *******LOBBY HEADER CSS******
 ****************************/
 #lobby-header {
     width: 100%;
     min-height: 326px;
-    background-color: coral;
+    background-color: #13586d;
+    background-image: linear-gradient(to right, #13586d, #11414f);
 }
 #sport-name {
     width: 40%;
     min-height: 190px;
-    background-color: lightpink;
     padding: 1px;
+    color: white;
 }
 #sport-name h1 {
     margin: 60px 0px 0px 48px;
@@ -36,30 +95,34 @@ html, body {
 }
 #lobby-header-bottom {
     width: 100%;
-    min-height: 50px;
+    height: 55px;
     margin-top: 86px;
-    background-color: darkred;
+    background-color: #232323;
 }
 #sort {
     display: inline-block;
     margin-left: 48px;
 }
 #sort button {
-    min-width: 141.99px;
+    min-width: 145.99;
     padding: 0 14px;
+    border: none;
+    background-color: transparent;
     font-size: 16pt;
+    color: white;
     text-align: left;
+    outline: 0;
+    border-bottom: solid #e14658 4px;
 }
-#sort button img {
-    width: 20px;
-    height: auto;
-    margin-left: 5px;
-    margin-bottom: 1px;
+#sort button:hover, #sort button:focus {
+    cursor: pointer;
+    outline: 0;
+    border-bottom: solid #f45a6c 4px;
 }
 #sort p {
     margin: 0 0 5px 0;
-    color: white;
     font-size: 12pt;
+    color: white;
 }
 #dropdown {
     position: relative;
@@ -68,7 +131,7 @@ html, body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: coral;
+    background-color: #e14658;
 }
 .dropdown-content a {
     padding: 5px 50px 5px 15px;
@@ -76,8 +139,34 @@ html, body {
     font-size: 16pt;
     text-decoration: none;
 }
-.dropdown-content a:hover {background-color: #ff6e39;}
+.dropdown-content a:hover {background-color: #f45a6c;}
 .dropdown-visible {display: block;}
+#location {
+    float: right;
+    margin-top: 15px;
+    margin-right: 5px;
+    color: white;
+}
+#location img {
+    float: left;
+    width: 20px;
+    height: auto;
+}
+#location div {
+    display: inline-block;
+    margin: 2px 0 0 5px;
+}
+#location input {
+    height: 30px;
+    width: 70%;
+    text-align: center;
+    background-color: transparent;
+    font-style: normal;
+    font-size: 16pt;
+    border-bottom: solid #e14658 4px;
+}
+#location input:hover, #location input:focus {border-bottom: solid #f45a6c 4px;}
+#location ::placeholder {font-size: 16pt;}
 /******************************
 ******************************/
 
@@ -90,15 +179,130 @@ html, body {
     width: 100%;
     min-height: 488px;
     height: auto;
-    text-align: center;
-    background-color: lightgreen;
+    background-color: rgb(230, 228, 228);
+}
+#lobby-list-content {
+    display: inline-block;
+    margin-left: 29px;
+}
+.lobby {
+    display: inline-block;
+    text-align: left;
 }
 .box {
     display: inline-block;
-    width: 28%;
-    min-height: 200px;
-    margin: 25px 21px;
-    background-color: darkgreen;
+    width: 332px;
+    height: 200px;
+    margin: 25px 21px 5px 21px;
+    border: solid 5px black;
+    border-radius: 5%;
+    background-color: #f2d388;
+    color: black;
+}
+.box-description {
+    margin: 0 auto;
+    width: 332px;
+    height: 50px;
+    color: black;
+}
+.box-profile {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid black 2px;
+    background-color: lightslategray;
+}
+.box-profile img {
+    margin: 5px 0 0 7px;
+    width: 25px;
+    height: auto;
+}
+.user-name {
+    display: inline-block;
+    margin: 15px 0 0 10px;
+}
+.capacity {
+    float: right;
+    margin: 15px 10px 0 0;
+}
+.event-date img {
+    width: 25px;
+    height: auto;
+    float: left;
+}
+.event-date div {
+    display: inline-block;
+    margin-top: 3px;
+}
+.event-location {margin: 150px 0 0 5px;}
+.event-location img {
+    width: 18px;
+    height: auto;
+    float: left;
+}
+.event-location div {
+    display: inline-block;
+    margin: 5px 0 0 2px;
 }
 /******************************
 ******************************/
+
+@media screen and (max-width: 1923px) {
+
+    #lobby-list {text-align: center;}
+    #lobby-list-content {margin: 0;}
+    .lobby {margin: 0 1%;}
+}
+@media screen and (max-width: 1600px) {
+
+    .lobby {margin: 0;}
+    #sport-name {width: 50%;}
+
+}
+@media screen and (max-width: 1425px) {
+
+    #lobby-list-content {
+        min-width: 800px;
+        text-align: justify;
+    }
+    .lobby {margin: 0 5%;}
+
+}
+@media screen and (max-width: 1176px) {
+
+    .lobby {margin: 0 2%;}
+
+}
+@media screen and (max-width: 1080px) {
+
+    .lobby{margin: 0;} 
+
+}
+@media screen and (max-width: 1000px) {
+
+    #leftbar {display:none;}
+    #friendstitle {display:none;}
+    #inner-content {width: 100%;}
+    #sport-name {width: 55%;}
+}
+@media screen and (max-width: 800px) {
+
+    #lobby-list-content {
+        min-width: 0;
+        text-align: center;
+    }
+    #sport-name {
+        width: 100%;
+        text-align: center;
+    }
+    #sport-name h1 {
+        margin: 80px 0 0 0;
+        font-size: 48pt;
+    }
+    #sport-name h3{
+        margin: 0;
+        font-size: 26pt;
+    }
+
+}
