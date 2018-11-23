@@ -15,12 +15,17 @@ $( "#basketball2" ).click(function() {
         $( this ).toggleClass( "active" ); 
 });
 $( "#soccerball" ).click(function() {
+        console.log(123);
         $( this ).toggleClass( "active" ); 
+        
 });
-$( "#tennis" ).click(function() {
+$( "#tennis2" ).click(function() {
+        console.log(123);
         $( this ).toggleClass( "active" ); 
+        
 });
 $( "#volleyball" ).click(function() {
+        console.log(123);
         $( this ).toggleClass( "active" ); 
 });
 $( "#plus2" ).click(function() {

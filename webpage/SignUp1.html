@@ -8,6 +8,10 @@
         </style>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">      
         <link rel="stylesheet" type="text/css" href="./files./css/SignUp1.css">
+        
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+        
     </head>
     <body>
         
@@ -27,19 +31,19 @@
                     <div class="ui large form" id="boxfield">
                             <div class="inline field" id="full">
                                     <label id="label">Full Name</label>
-                                    <input placeholder="Full Name" type="text">
+                                    <input placeholder="Full Name" id="name" type="text">
                             </div>
                             <div class="inline field"id="pass">
                                     <label id="label">Password</label>
-                                    <input placeholder="Password" type="text">
+                                    <input placeholder="Password" id="password" type="password">
                             </div>
                             <div class="inline field" id="emailfield">
                                     <label id="label">Email</label>
-                                    <input placeholder="Email" type="text">
+                                    <input placeholder="Email" id="emailfield2" id="email" type="email">
                             </div>
                             <div class="inline field" id="address">
                                     <label id="label">Address</label>
-                                    <input placeholder="Address" type="text">
+                                    <input placeholder="Address" id="addressfield" type="text">
                             </div>
                             <div class="inline field">
                                     <label id="label">Gender</label>
@@ -185,7 +189,12 @@
                     </div>
                 
                 <button class="button2" style="vertical-align:right"><span>Back </span></button>
-                <button class="button" style="vertical-align:right"><span>Next </span></button>
+                <button class="button" type="submit" id="mySubmit" style="vertical-align:right"><span>Next </span></button>
             </div>
+            
+        <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+            
+        <script src="./files/js/SignUp.js"></script>
+            
     </body>
 </html>
