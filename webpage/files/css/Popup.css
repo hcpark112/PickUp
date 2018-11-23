@@ -88,7 +88,7 @@ width: 90px;
 background-color: #00303f;
 
 }
-#tennis{
+#tennis2{
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     border-radius: 10%;
@@ -125,7 +125,7 @@ background-color: #00303f;
 #volleyball:hover{
     border: 3px solid #e14658
 }
-#tennis:hover{
+#tennis2:hover{
     border: 3px solid #e14658
 }
 #plus2:hover{
@@ -140,7 +140,7 @@ background-color: #00303f;
 #soccerball.active{
     border: 3px solid #e14658
 }
-#tennis.active{
+#tennis2.active{
     border: 3px solid #e14658
 }
 #volleyball.active{
