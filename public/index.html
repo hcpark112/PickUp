@@ -27,18 +27,17 @@
       var test = document.getElementById('abc');
       var text = firebase.database().ref().child('text').child('test').child('test1').child('email');
 
-      function createUser(userNum, fullName, password, email, age, gender, base, basket, foot, soccer, volley) {
+      function createUser(userNum, fullName, password, email, gender, base, basket, foot, soccer, volley) {
         usersRef.child(userNum).set({
           fullname: fullName,
           password: password,
           email: email,
-          age: age,
           gender: gender,
           karma: "5000",
           sports: {
             baseball: base,
             basketball: basket,
-            football: foot,
+            tennis: tennis,
             soccer: soccer,
             volleyball: volley
           }
