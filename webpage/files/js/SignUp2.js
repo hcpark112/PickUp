@@ -15,17 +15,14 @@ $( "#basketball2" ).click(function() {
         $( this ).toggleClass( "active" ); 
 });
 $( "#soccerball" ).click(function() {
-        console.log(123);
         $( this ).toggleClass( "active" ); 
         
 });
 $( "#tennis2" ).click(function() {
-        console.log(123);
         $( this ).toggleClass( "active" ); 
         
 });
 $( "#volleyball" ).click(function() {
-        console.log(123);
         $( this ).toggleClass( "active" ); 
 });
 $( "#plus2" ).click(function() {
@@ -133,3 +130,46 @@ $('#ex1').slider({
                 return 'Current value: ' + value;
         }
 });
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD0bFMT_-dlAfllbPc2rJXhZRnrJIERwv8",
+        authDomain: "pickup-1541825853857.firebaseapp.com",
+        databaseURL: "https://pickup-1541825853857.firebaseio.com",
+        projectId: "pickup-1541825853857",
+        storageBucket: "pickup-1541825853857.appspot.com",
+        messagingSenderId: "51007491965"
+      };
+      firebase.initializeApp(config);
+      
+      var dbRef = firebase.database();
+      var usersRef = firebase.database().ref().child('PickUp').child('Users');
+      console.log(document.getElementById('base').value)
+      document.getElementById('mySubmit2').addEventListener('click', submitForm);
+      function submitForm(e){
+                
+              e.preventDefault();
+              //console.log(123);
+             
+              var base = getInputVal('base');
+              var basket = getInputVal('basket');
+              var soccer = getInputVal('soccer');
+              var tennis = getInputVal('tennis');
+              var volley = getInputVal('volley');
+  
+              console.log(base, basket, soccer, tennis, volley);
+              createUser("user7", base, basket, soccer, tennis, volley);
+      }
+      function getInputVal(id){
+              return document.getElementById(id).value;
+              
+      }
+      function createUser(userNum, base, basket, soccer, tennis, volley) {
+        usersRef.child(userNum).set({
+            baseball: base,
+            basketball: basket,
+            tennis: tennis,
+            soccer: soccer,
+            volleyball: volley
+          
+        });
+}

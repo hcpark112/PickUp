@@ -21,7 +21,7 @@ var config = {
             var address = getInputVal('addressfield');
             var gender = getInputVal('gender');
 
-            createUser(name, pass, email, address, gender);
+            createUser("user1", name, pass, email, address, gender);
     }
     function getInputVal(id){
             return document.getElementById(id).value;
