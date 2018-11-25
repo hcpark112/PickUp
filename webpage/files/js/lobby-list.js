@@ -12,7 +12,7 @@ var dbRef = firebase.database();
 var gamesRef = firebase.database().ref().child('PickUp').child('Games');
 
 $(document).ready(function() {
-  // numLobby(12);
+
   //replaces drop down button text with selection
   $("#drop a").click(function() {
       $("#sort button").html($(this).html());
@@ -160,12 +160,24 @@ window.onclick = function(event) {
 /*The array of lobby objects.*/
 var lobbyArr = [];
 
+const MAX_GAMES = 12;
+
 /**
  * Retrieves the "games" branch of the firebase database. Then
  * passes the branch/snapshot into the getLobbyListData function.
  */
 gamesRef.on('child_added', function(snapshot) {
-  getLobbyListData(snapshot);
+  let obj = getLobbyListData(snapshot);
+  lobbyArr.push(obj);
+
+  //just printing lobbyArr is buggy cuz console fucks it
+  for(let i = 0; i < lobbyArr.length; i++) {
+    console.log(lobbyArr[i]);
+  }
+
+  if(lobbyArr.length == MAX_GAMES) {
+    appendToPage();
+  }
 });
 
 /**
@@ -175,26 +187,10 @@ gamesRef.on('child_added', function(snapshot) {
  * @param snapshot the "Games" branch containing list of all current games
  */
 function getLobbyListData(snapshot) {
-  let count = 0, hasDate = false, hasCapacity = false;
-  var date, capacity;
+  let hasDate = false, hasCapacity = false;
+  var date, capacity, obj;
 
-  /**
-   * The forEach loops through all the child nodes of
-   * each game in the database. The loop cancels once it has read
-   * the date and capacity keys, and pulled the values.
-   * Here is a sudo code example of how the loop works:
-   *
-   *          for(children of "Games") {
-   *            for(children of "Games.child") {
-   *              read in date and capacity
-   *
-   *              if (we have both)
-   *                exit this loop
-   *            }
-   *          }
-   */
   snapshot.forEach(function(childSnapshot) {
-
     if(childSnapshot.key == "date") {
       date = childSnapshot.val();
       hasDate = true;
@@ -205,28 +201,15 @@ function getLobbyListData(snapshot) {
     }
 
     if(hasDate && hasCapacity) {
-      createLobbyObj(date, capacity);
+      obj = {
+        maxSize: capacity,
+        date   : date,
+        html   : createLobbyHTML(date, capacity)
+      }
       return true;
     }
   });
-}
-
-/**
- * Pushes a JS Object into the lobbyArr array. The object represents a lobby.
- * The lobby contains:
- *      maxSize - The maximum number of players the lobby can hold.
- *      date    - The date for the sport event.
- *      html    - The html for the lobby div.
- *
- * @param date the Date of the lobby.
- * @param capacity the max capacity of the lobby.
- */
-function createLobbyObj(date, capacity) {
-  lobbyArr.push({
-    maxSize: capacity,
-    date   : date,
-    html   : createLobbyHTML(date, capacity)
-  });
+  return obj;
 }
 
 /*
@@ -260,4 +243,8 @@ function createLobbyHTML(date, capacity) {
   return lobbyDiv;
 }
 
-console.log(lobbyArr);
+function appendToPage() {
+  for(let i = 0; i < lobbyArr.length; i++) {
+    $("#lobby-list-content").append(lobbyArr[i].html);
+  }
+}

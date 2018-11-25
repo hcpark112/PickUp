@@ -20,7 +20,7 @@
         messagingSenderId: "51007491965"
       };
       firebase.initializeApp(config);
-      
+
       var dbRef = firebase.database();
       var usersRef = firebase.database().ref().child('PickUp').child('Users');
       var gamesRef = firebase.database().ref().child('PickUp').child('Games');
@@ -59,15 +59,26 @@
             min: min,
             max: max,
           }
-        }); 
+        });
       }
 
       createUser('user1', 'Kevin Park', '12345678', 'kpark@gmail.com', '23', 'male', '02/01/1995', '8', '7', '6', '5', '0');
       createUser('user2', 'William Loftus', '87654321', 'wlofty@gmail.com', '19', 'male', '11/11/1999', '6', '8', '3', '0', '5');
       createUser('user3', 'Alec Martin', '12345678', 'amartin@gmail.com', '18', 'male', '04/21/2000', '5', '4', '0', '7', '3');
 
-      createGame('game1', '12/25/2018', 'BCIT', 'user1', 'Soccer', "1", "4", "8");
-      createGame('game2', '01/01/2019', 'BCIT', 'user2', 'Basketball', "5", "9", "6");
+      createGame('game1', 'MAR/05/2019', 'BCIT', 'user1', 'Soccer', "1", "4", "8");
+      createGame('game2', 'AUG/22/2019', 'BCIT', 'user2', 'Basketball', "5", "9", "6");
+      createGame('game3', 'MAY/02/2019', 'BCIT', 'user3', 'Soccer', "1", "4", "18");
+      createGame('game4', 'JUN/06/2019', 'BCIT', 'user4', 'Basketball', "5", "9", "12");
+      createGame('game5', 'JUN/20/2019', 'BCIT', 'user5', 'Soccer', "1", "4", "8");
+      createGame('game6', 'MAY/15/2019', 'BCIT', 'user6', 'Basketball', "5", "9", "24");
+
+      createGame('game7', 'JUL/05/2019', 'BCIT', 'user7', 'Soccer', "1", "4", "6");
+      createGame('game8', 'AUG/16/2019', 'BCIT', 'user8', 'Basketball', "5", "9", "14");
+      createGame('game9', 'MAY/12/2019', 'BCIT', 'user9', 'Soccer', "1", "4", "18");
+      createGame('game10', 'APR/16/2019', 'BCIT', 'user10', 'Basketball', "5", "9", "14");
+      createGame('game11', 'JUN/20/2019', 'BCIT', 'user11', 'Soccer', "1", "4", "8");
+      createGame('game12', 'SEP/01/2019', 'BCIT', 'user12', 'Basketball', "5", "9", "22");
 
       gamesRef.child('game1').child('date').on('value', snap => abc.innerText = "Date: " + snap.val());
       gamesRef.child('game1').child('location').on('value', snap => abc2.innerText = "location: " + snap.val());
@@ -84,7 +95,7 @@
       // console.log(JSON.stringify(gamesRef.child('game1')));
       // console.log(JSON.stringify(gamesRef));
 
-      
+
       // gamesRef.addListenerForSingleValueEvent(
       //     new ValueEventListener() {
       //         @Override
@@ -118,7 +129,7 @@
     var key = aRef.key;  // key === "ada"
     // key = adaRef.child("name/last").key;  // key === "last"
     console.log(aRef.key);
-    
+
     </script>
 </body>
 </html>
