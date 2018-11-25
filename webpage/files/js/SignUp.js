@@ -7,32 +7,24 @@ var config = {
     messagingSenderId: "51007491965"
     };
     firebase.initializeApp(config);
-    var usersRef = firebase.database().ref().child('PickUp').child('Users');
+    var usersRef= firebase.database().ref().child('PickUp').child('Users').push();
     
+    var user = firebase.auth().currentUser;
     document.getElementById('mySubmit').addEventListener('click', submitForm);
     function submitForm(e){
               
             e.preventDefault();
             //console.log(123);
            
-            var name = getInputVal('name');
-            var pass = getInputVal('password');
-            var email = getInputVal('emailfield2');
-            var address = getInputVal('addressfield');
-            var gender = getInputVal('gender');
-
-            createUser(name, pass, email, address, gender);
+            window.localStorage.setItem("name",document.getElementById("name").value);
+            window.sessionStorage.setItem("password",document.getElementById("password").value);
+            window.sessionStorage.setItem("emailfield2",document.getElementById("emailfield2").value);
+            window.sessionStorage.setItem("addressfield",document.getElementById("addressfield").value);
+            window.sessionStorage.setItem("gender",document.getElementById("gender").value);
+            var name = window.localStorage.getItem("name");
+            console.log(name);
     }
+    
     function getInputVal(id){
             return document.getElementById(id).value;
     }
-      
-    function createUser(userNum, fullName, password, email, gender, base, basket, foot, soccer, volley) {
-    usersRef.child(userNum).set({
-    fullname: fullName,
-    password: password,
-    email: email,
-    gender: gender,
-    karma: "5000",
-    })  
-}
