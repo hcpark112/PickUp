@@ -13,15 +13,25 @@ var config = {
     document.getElementById('mySubmit3').addEventListener('click', login);
       function login(e){
         e.preventDefault();
-        const txtEmail = txtEmail.value;
-        const txtPassword = txtPassword.value;
-        const promise = firebase.auth().signInWithEmailAndPassword(email, password);
+        const email = txtEmail.value;
+        const pass = txtPassword.value;
+        const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message));
       }
+      //document.getElementById('mySubmit4').addEventListener('click', logout);
+      //function logout(){
+      //  firebase.auth().signOut();
+      //}
+      window.onbeforeunload = function(e) {
+        firebase.auth().signOut();
+    };
       firebase.auth() .onAuthStateChanged(firebaseUser =>{ 
         if(firebaseUser) { 
         console.log (firebaseUser); 
+        console.log(123);
+        //document.location.href = "https://www.google.ca/";
         } else { 
         console.log( 'not logged in' ); 
         }
     });
+    
