@@ -161,7 +161,7 @@ window.onclick = function(event) {
 var lobbyArr = [];
 
 /*The max number of games in the data base, set to 2 for developing purposes*/
-const MAX_GAMES = 2;
+const MAX_GAMES = 12;
 
 /**
  * Retrieves the "games" branch of the firebase database. Then
