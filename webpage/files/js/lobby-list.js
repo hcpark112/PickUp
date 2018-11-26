@@ -160,6 +160,7 @@ window.onclick = function(event) {
 /*The array of lobby objects.*/
 var lobbyArr = [];
 
+/*The max number of games in the data base, set to 2 for developing purposes*/
 const MAX_GAMES = 2;
 
 /**
@@ -175,6 +176,7 @@ gamesRef.on('child_added', function(snapshot) {
     console.log(lobbyArr[i]);
   }
 
+  //if the lobby list has all the games, do this
   if(lobbyArr.length == MAX_GAMES) {
     appendToPage();
   }
@@ -243,6 +245,7 @@ function createLobbyHTML(date, capacity) {
   return lobbyDiv;
 }
 
+//grabs the contents of lobbyArr and appends the html of each obj to the page
 function appendToPage() {
   for(let i = 0; i < lobbyArr.length; i++) {
     $("#lobby-list-content").append(lobbyArr[i].html);
