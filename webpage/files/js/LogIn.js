@@ -1,12 +1,4 @@
-var config = {
-    apiKey: "AIzaSyD0bFMT_-dlAfllbPc2rJXhZRnrJIERwv8",
-    authDomain: "pickup-1541825853857.firebaseapp.com",
-    databaseURL: "https://pickup-1541825853857.firebaseio.com",
-    projectId: "pickup-1541825853857",
-    storageBucket: "pickup-1541825853857.appspot.com",
-    messagingSenderId: "51007491965"
-    };
-    firebase.initializeApp(config); 
+    
     const auth = firebase.auth();
     const txtEmail = document.getElementById('txtEmail');
     const txtPassword = document.getElementById('txtPassword');
@@ -22,16 +14,20 @@ var config = {
       //function logout(){
       //  firebase.auth().signOut();
       //}
-      window.onbeforeunload = function(e) {
-        firebase.auth().signOut();
-    };
-      firebase.auth() .onAuthStateChanged(firebaseUser =>{ 
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+      async function wait() {
+      await sleep(2000);
+      firebase.auth().onAuthStateChanged(firebaseUser =>{ 
         if(firebaseUser) { 
         console.log (firebaseUser); 
         console.log(123);
-        //document.location.href = "https://www.google.ca/";
+        document.location.href = "https://www.google.ca/";
         } else { 
         console.log( 'not logged in' ); 
         }
     });
+}
+    wait();
     
