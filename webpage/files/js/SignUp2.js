@@ -142,8 +142,8 @@ $('#ex1').slider({
       firebase.initializeApp(config);
       
       var dbRef = firebase.database();
-      
-      var usersRef = firebase.database().ref().child('PickUp').child('Users').push();
+      const auth = firebase.auth();
+      var usersRef = firebase.database().ref().child('PickUp').child('Users');
       //usersRef.update({ title: "New title", body: "This is the new body" }) 
       console.log(document.getElementById('base').value)
       document.getElementById('mySubmit2').addEventListener('click', submitForm);
@@ -159,8 +159,9 @@ $('#ex1').slider({
               var volley = getInputVal('volley');
               
               
-              createUser( name, pass, email, address, gender, base, basket, soccer, tennis, volley);
-              
+              createUser( name, name, pass, email, address, gender, base, basket, soccer, tennis, volley);
+              const promise = firebase.auth().createUserWithEmailAndPassword(email, pass);
+              promise.catch(e => console.log(e.message));
       }
       function getInputVal(id){
               return document.getElementById(id).value;   
@@ -171,18 +172,20 @@ $('#ex1').slider({
         var address = window.localStorage.getItem("addressfield");
         var gender = window.localStorage.getItem("gender");
       console.log(name);
-      function createUser(fullName, password, email, gender, base, basket, soccer, tennis, volley) {
-        usersRef.set({
+      function createUser(fullName, fullName, password, email, address, gender, base, basket, soccer, tennis, volley) {
+        usersRef.child(fullName).set({
         fullname: fullName,
         password: password,
         email: email,
+        address: address,
         gender: gender,
         karma: "5000",
+        sports: {
             baseball: base,
             basketball: basket,
             tennis: tennis,
             soccer: soccer,
             volleyball: volley
-          
+        }
         });
 }
