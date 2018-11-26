@@ -27,8 +27,8 @@
       var test = document.getElementById('abc');
       var text = firebase.database().ref().child('text').child('test').child('test1').child('email');
 
-      function createUser(userNum, fullName, password, email, gender, base, basket, tennis, soccer, volley) {
-        usersRef.child(userNum).set({
+      function createUser(fullName, password, email, gender, base, basket, tennis, soccer, volley) {
+        usersRef.child(fullName).set({
           fullname: fullName,
           password: password,
           email: email,
@@ -62,9 +62,9 @@
         });
       }
 
-      createUser('user1', 'Kevin Park', '12345678', 'kpark@gmail.com', '23', 'male', '02/01/1995', '8', '7', '6', '5', '0');
-      createUser('user2', 'William Loftus', '87654321', 'wlofty@gmail.com', '19', 'male', '11/11/1999', '6', '8', '3', '0', '5');
-      createUser('user3', 'Alec Martin', '12345678', 'amartin@gmail.com', '18', 'male', '04/21/2000', '5', '4', '0', '7', '3');
+      createUser('Kevin Park', '12345678', 'kpark@gmail.com', 'male', '8', '7', '6', '5', '0');
+      createUser('William Loftus', '87654321', 'wlofty@gmail.com', 'male', '6', '8', '3', '0', '5');
+      createUser('Alec Martin', '12345678', 'amartin@gmail.com', 'male', '5', '4', '0', '7', '3');
 
       createGame('game1', 'MAR/05/2019', 'BCIT', 'user1', 'Soccer', "1", "4", "8");
       createGame('game2', 'AUG/22/2019', 'BCIT', 'user2', 'Basketball', "5", "9", "6");
