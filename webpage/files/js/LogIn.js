@@ -1,4 +1,3 @@
-    
     const auth = firebase.auth();
     const txtEmail = document.getElementById('txtEmail');
     const txtPassword = document.getElementById('txtPassword');
@@ -30,4 +29,8 @@
     });
 }
     wait();
-    
+    var UsersRef = firebase.database().ref("Users/");
+    UsersRef.on("child_added", function(data) {
+        var newPlayer = data.val();
+        console.log("name: " + newPlayer.name);
+    });
