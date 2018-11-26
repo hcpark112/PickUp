@@ -12,7 +12,6 @@ var dbRef = firebase.database();
 var gamesRef = firebase.database().ref().child('PickUp').child('Games');
 
 $(document).ready(function() {
-
   //replaces drop down button text with selection
   $("#drop a").click(function() {
       $("#sort button").html($(this).html());
@@ -152,7 +151,6 @@ window.onclick = function(event) {
   }
 
 
-
 /******************************************************************************
 ********************NEW JAVASCRIPT FOR FIREBASE INTEGRATION********************
 ********************************************************************************/
@@ -171,11 +169,6 @@ gamesRef.on('child_added', function(snapshot) {
   let obj = getLobbyListData(snapshot);
   lobbyArr.push(obj);
 
-  //just printing lobbyArr is buggy cuz console fucks it
-  for(let i = 0; i < lobbyArr.length; i++) {
-    console.log(lobbyArr[i]);
-  }
-
   //if the lobby list has all the games, do this
   if(lobbyArr.length == MAX_GAMES) {
     appendToPage();
@@ -189,8 +182,8 @@ gamesRef.on('child_added', function(snapshot) {
  * @param snapshot the "Games" branch containing list of all current games
  */
 function getLobbyListData(snapshot) {
-  let hasDate = false, hasCapacity = false;
-  var date, capacity, obj;
+  let hasDate = false, hasCapacity = false, hasOwner = false;
+  var date, capacity, owner, obj;
 
   snapshot.forEach(function(childSnapshot) {
     if(childSnapshot.key == "date") {
@@ -200,13 +193,19 @@ function getLobbyListData(snapshot) {
     } else if(childSnapshot.key == "capacity") {
       capacity = childSnapshot.val();
       hasCapacity = true;
+
+    } else if(childSnapshot.key == "owner") {
+      owner = childSnapshot.val();
+      hasOwner = true;
+
     }
 
-    if(hasDate && hasCapacity) {
+    if(hasDate && hasCapacity && hasOwner) {
       obj = {
         maxSize: capacity,
         date   : date,
-        html   : createLobbyHTML(date, capacity)
+        owner  : owner,
+        html   : createLobbyHTML(date, capacity, owner)
       }
       return true;
     }
@@ -221,7 +220,7 @@ function getLobbyListData(snapshot) {
  * @param capacity the max capacity of the lobby.
  * @returns the Completed Lobby Div, with a unique date and capacity.
  */
-function createLobbyHTML(date, capacity) {
+function createLobbyHTML(date, capacity, owner) {
   let lobbyDiv = $("<div class = 'lobby'></div>");
 
   let boxDiv = $("<div class = 'box'></div>");
@@ -229,20 +228,67 @@ function createLobbyHTML(date, capacity) {
 
   let eventDateDiv = $("<div class = 'event-date'></div>");
   $(boxDiv).append(eventDateDiv);
-  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div>" + date + "</div>");
+  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div class = 'transparent'>" + formatDate(date) + "</div>");
 
   let eventLocationDiv = $("<div class = 'event-location'></div>");
   $(boxDiv).append(eventLocationDiv);
-  $(eventLocationDiv).append("<img src = './files/images/mapmarker.png' alt = 'mapmarker'><div>Trout Lake Park</div>");
+  $(eventLocationDiv).append("<img src = './files/images/mapmarker.png' alt = 'mapmarker'><div class = 'transparent'>Trout Lake Park</div>");
 
   let boxDescriptionDiv = $("<div class = 'box-description'></div>");
   $(lobbyDiv).append(boxDescriptionDiv);
 
   $(boxDescriptionDiv).append("<div class = 'box-profile'><img src = './files/images/person.png' alt = 'pic'></div>");
-  $(boxDescriptionDiv).append("<div class = 'user-name'>Username</div>");
-  $(boxDescriptionDiv).append("<div class = 'capacity'>" + capacity + "</div>");
+  $(boxDescriptionDiv).append("<div class = 'user-name'>" + owner + "</div>");
+  $(boxDescriptionDiv).append("<div class = 'capacity'>" + formatCapacity(capacity) + "</div>");
 
   return lobbyDiv;
+}
+
+function formatDate(date) {
+  let arr = date.split("/");
+  let month = formatMonth(arr[0]), day = arr[1], year = arr[2];
+
+  if (day.substring(0, 1) == "0") {
+    day = day.substring(1);
+  }
+
+  return month + " " + day + ", " + year;
+}
+
+function formatMonth(month) {
+  switch(month) {
+    case "JAN":
+      return "January";
+    case "FEB":
+      return "February";
+    case "MAR":
+      return "March";
+    case "APR":
+      return "April";
+    case "MAY":
+      return "May";
+    case "JUN":
+      return "June";
+    case "JUL":
+      return "July";
+    case "AUG":
+      return "August";
+    case "SEP":
+      return "September";
+    case "OCT":
+      return "October";
+    case "NOV":
+      return "November";
+    case "DEC":
+      return "December";
+    default:
+      throw "Error: Not valid month number";
+  }
+}
+
+function formatCapacity(capacity) {
+  var currPlayers = ((Math.random() * capacity)) | 0;
+  return currPlayers + "/" + capacity;
 }
 
 //grabs the contents of lobbyArr and appends the html of each obj to the page
