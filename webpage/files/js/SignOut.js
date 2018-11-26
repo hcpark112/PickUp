@@ -10,5 +10,5 @@ var config = {
 
     window.onload = function(e) {
         firebase.auth().signOut();
-        console.log(12345)
+        console.log("Signing out...")
     };

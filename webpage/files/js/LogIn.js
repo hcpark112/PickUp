@@ -22,10 +22,10 @@
       firebase.auth().onAuthStateChanged(firebaseUser =>{ 
         if(firebaseUser) { 
         console.log (firebaseUser); 
-        console.log(123);
+        console.log("Logging in...");
         document.location.href = "https://www.google.ca/";
         } else { 
-        console.log( 'not logged in' ); 
+        console.log('not logged in'); 
         }
     });
 }
