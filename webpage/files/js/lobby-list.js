@@ -29,7 +29,7 @@ var gamesRef = firebase.database().ref().child('PickUp').child('Games');
 $(document).ready(function() {
 
   /***/
-  let sport = parseURL(window.location.href + "?Basketball");
+  let sport = parseURL(window.location.href);
 
   /***/
   updatePage(sport);
