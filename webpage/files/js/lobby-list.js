@@ -94,6 +94,11 @@ gamesRef.on('child_added', function(snapshot) {
   let obj = getLobbyListData(snapshot);
   lobbyArr.push(obj);
 
+  //just printing lobbyArr is buggy cuz console fucks it
+  for(let i = 0; i < lobbyArr.length; i++) {
+    console.log(lobbyArr[i]);
+  }
+
   //if the lobby list has all the games, do this
   if(lobbyArr.length == MAX_GAMES) {
     appendToPage();
@@ -106,8 +111,8 @@ gamesRef.on('child_added', function(snapshot) {
  * @return obj
  */
 function getLobbyListData(snapshot) {
-  let hasDate = false, hasCapacity = false, hasOwner = false;
-  var date, capacity, owner, obj;
+  let hasDate = false, hasCapacity = false;
+  var date, capacity, obj;
 
   snapshot.forEach(function(childSnapshot) {
     if(childSnapshot.key == "date") {
@@ -117,14 +122,9 @@ function getLobbyListData(snapshot) {
     } else if(childSnapshot.key == "capacity") {
       capacity = childSnapshot.val();
       hasCapacity = true;
-
-    } else if(childSnapshot.key == "owner") {
-      owner = childSnapshot.val();
-      hasOwner = true;
-
     }
 
-    if(hasDate && hasCapacity && hasOwner) {
+    if(hasDate && hasCapacity) {
       obj = {
         maxSize: parseInt(capacity),
         date   : parseDate(date),
@@ -152,7 +152,7 @@ function getLobbyListData(snapshot) {
  * @param owner
  * @return
  */
-function createLobbyHTML(date, capacity, owner) {
+function createLobbyHTML(date, capacity) {
   let lobbyDiv = $("<div class = 'lobby'></div>");
 
   let boxDiv = $("<div class = 'box'></div>");
@@ -160,18 +160,18 @@ function createLobbyHTML(date, capacity, owner) {
 
   let eventDateDiv = $("<div class = 'event-date'></div>");
   $(boxDiv).append(eventDateDiv);
-  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div class = 'transparent'>" + formatDate(date) + "</div>");
+  $(eventDateDiv).append("<img src = './files/images/calendar.png' alt = 'calendar'><div>" + date + "</div>");
 
   let eventLocationDiv = $("<div class = 'event-location'></div>");
   $(boxDiv).append(eventLocationDiv);
-  $(eventLocationDiv).append("<img src = './files/images/mapmarker.png' alt = 'mapmarker'><div class = 'transparent'>Trout Lake Park</div>");
+  $(eventLocationDiv).append("<img src = './files/images/mapmarker.png' alt = 'mapmarker'><div>Trout Lake Park</div>");
 
   let boxDescriptionDiv = $("<div class = 'box-description'></div>");
   $(lobbyDiv).append(boxDescriptionDiv);
 
   $(boxDescriptionDiv).append("<div class = 'box-profile'><img src = './files/images/person.png' alt = 'pic'></div>");
-  $(boxDescriptionDiv).append("<div class = 'user-name'>" + owner + "</div>");
-  $(boxDescriptionDiv).append("<div class = 'capacity'>" + formatCapacity(capacity) + "</div>");
+  $(boxDescriptionDiv).append("<div class = 'user-name'>Username</div>");
+  $(boxDescriptionDiv).append("<div class = 'capacity'>" + capacity + "</div>");
 
   return lobbyDiv;
 }
