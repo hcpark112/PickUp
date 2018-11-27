@@ -76,7 +76,7 @@ input[type=image]:active {
   text-align: center;
   height: 60vh;
   max-height: 600px;
-  width: 100vw;
+  width: 80vw;
   float: right;
 }
 
@@ -84,7 +84,7 @@ input[type=image]:active {
   position: relative;
   height: 60vh;
   max-height: 600px;
-  width: 100vw;
+  width: 80vw;
 }
 
 #slideshow > div {
@@ -106,7 +106,7 @@ input[type=image]:active {
   display: inline-flex;
   background-color: rgb(230, 228, 228);
   height: calc(45vh - 46px);
-  width: 100vw;
+  width: 80vw;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -166,6 +166,33 @@ input[type=image]:active {
   font-weight: 500;
   text-align: center;
   color: black;
+}
+
+#leftbar {
+  background-color: #00303f;
+  width: 20vw;
+  height: calc(93vh - 46px);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+}
+
+#friendstitle {
+  background-color: #00303f;
+  width: 20vw;
+  height: calc(7vh - 3px);
+  position: absolute;
+  top: 46px;
+  /*border-bottom: 3px solid #e14658;*/
+  border-top: 3px solid #e14658;
+  text-align: center;
+}
+
+#friendstitle span {
+  color: #efefef;
+  font-size: 24pt;
+  line-height: 65px;
 }
 
 #topbar {

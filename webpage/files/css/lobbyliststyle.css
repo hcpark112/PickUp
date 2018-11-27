@@ -8,7 +8,7 @@ html, body {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 80%;
+    width: 100%;
     height: calc(100% - 45px);
     cursor: default;
 }
@@ -22,8 +22,8 @@ input[type=text] {
     font-style: italic;
     border-top: none;
     border-left: none;
-    border-right: none; 
-    border-bottom: 4px solid #f2d388; 
+    border-right: none;
+    border-bottom: 4px solid #f2d388;
     background-color: #00303f;
     height: 5vh;
     width: 100%;
@@ -196,14 +196,22 @@ input[type=button] {
     margin: 25px 21px 5px 21px;
     border: solid 5px black;
     border-radius: 5%;
-    background-color: #f2d388;
-    color: black;
+    background-image: url(../images/fieldPano.jpg);
+    color: white;
 }
 .box-description {
     margin: 0 auto;
     width: 332px;
     height: 50px;
     color: black;
+}
+.box:hover {
+  cursor: pointer;
+  border: solid 5px #e14658;
+}
+.box-description:hover{
+  cursor: pointer;
+  color: #e14658;
 }
 .box-profile {
     float: left;
@@ -231,19 +239,25 @@ input[type=button] {
     height: auto;
     float: left;
 }
+.transparent {
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 5%;
+  padding: 2px;
+}
 .event-date div {
     display: inline-block;
-    margin-top: 3px;
+    margin-top: 2px;
 }
 .event-location {margin: 150px 0 0 5px;}
 .event-location img {
     width: 18px;
+    margin-top: -5px;
     height: auto;
     float: left;
 }
 .event-location div {
     display: inline-block;
-    margin: 5px 0 0 2px;
+    margin: -5px 0 0 2px;
 }
 /******************************
 ******************************/
@@ -276,7 +290,7 @@ input[type=button] {
 }
 @media screen and (max-width: 1080px) {
 
-    .lobby{margin: 0;} 
+    .lobby{margin: 0;}
 
 }
 @media screen and (max-width: 1000px) {
