@@ -20,13 +20,19 @@ var gamesRef = firebase.database().ref().child('PickUp').child('Games');
 
 
 /*******************************************************************************
-*************************MISC JQUERY FUNCTIONS**********************************
+***************************MISC PAGE FUNCTIONS**********************************
 ********************************************************************************/
 
 /**
  * Contains JQuery click functions for different buttons on the page.
  */
 $(document).ready(function() {
+
+  /***/
+  let sport = parseURL(window.location.href + "?Basketball");
+
+  /***/
+  updatePage(sport);
 
   /**Replaces drop-down text with selection from drop-down menu.*/
   $("#drop a").click(function() {
@@ -72,6 +78,29 @@ window.onclick = function(event) {
       }
     }
   }
+
+/**
+ * Uses data-owner attribute to extract owner of div
+ */
+function toLobby(lobbyDiv) {
+  let owner = lobbyDiv.getAttribute("data-owner");
+  window.location.href = "lobby.html?" + owner.replace(" ", "+");
+}
+
+/**
+ *
+ */
+function parseURL(url) {
+  let index = url.indexOf("?");
+  return url.substring(index + 1);
+}
+
+/**
+ *
+ */
+function updatePage(sport) {
+  $("h1").html(sport);
+}
 /*******************************************************************************
 ********************************************************************************/
 
@@ -155,7 +184,8 @@ function getLobbyListData(snapshot) {
 function createLobbyHTML(date, capacity, owner) {
   let lobbyDiv = $("<div class = 'lobby'></div>");
 
-  let boxDiv = $("<div class = 'box'></div>");
+  //onclick
+  let boxDiv = $("<div class = 'box' data-owner = '" + owner + "' onclick = 'toLobby(this)'></div>");
   $(lobbyDiv).append(boxDiv);
 
   let eventDateDiv = $("<div class = 'event-date'></div>");
@@ -166,7 +196,8 @@ function createLobbyHTML(date, capacity, owner) {
   $(boxDiv).append(eventLocationDiv);
   $(eventLocationDiv).append("<img src = './files/images/mapmarker.png' alt = 'mapmarker'><div class = 'transparent'>Trout Lake Park</div>");
 
-  let boxDescriptionDiv = $("<div class = 'box-description'></div>");
+  //onclick
+  let boxDescriptionDiv = $("<div class = 'box-description' data-owner = '" + owner + "' onclick = 'toLobby(this)'></div>");
   $(lobbyDiv).append(boxDescriptionDiv);
 
   $(boxDescriptionDiv).append("<div class = 'box-profile'><img src = './files/images/person.png' alt = 'pic'></div>");
