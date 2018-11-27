@@ -22,6 +22,8 @@ var chatcount = 0;
 
     $(playerkarma).html(karma);
     $(playername).html(username);
+    
+    $(player).attr('id', username);
 
     $(playerkarmadiv).append(playerkarma);
     $(playernamediv).append(playername);
@@ -37,55 +39,6 @@ var chatcount = 0;
     }
   }
 
-  function lobby(name, sport, image_src){
-    var lobby = $("<div class='lobby'></div>");
-    $(lobby).attr("ondblclick", "window.location.href='https://www.google.com'");
-
-    var image = $("<img class='roomicon'>");
-    $(image).attr("src", image_src);
-    $(image).attr("alt", sport);
-
-    var namediv = $("<div class='namediv'></div>");
-    var roomname = $("<span class='roomname'></span>");
-    $(roomname).html(name + "'s lobby");
-
-    $("#leftbar").append(lobby);
-    // $(lobby).append(image);
-    $(lobby).append(namediv);
-    $(lobby).prepend(image);
-    $(namediv).append(roomname);
-  }
-
   $(document).ready(function() {
-    $("#slideshow > div:gt(0)").hide();
-
-    setInterval(function() {
-      $('#slideshow > div:first')
-        .fadeOut(0)
-        .next()
-        .fadeIn(1000)
-        .end()
-        .appendTo('#slideshow');
-    },  15000);
-
-
-
-    lobby("Will Loftus", "Basketball", "./files/images/basketball.png");
-    lobby("Jeavin Shoker", "Soccer", "./files/images/soccerball.png");
-    lobby("Emilio Ditrocchio", "Baseball", "./files/images/baseball.png");
-
-    var addlink = $("<a></a>");
-    $(addlink).attr("href", "https://www.google.com");
-
-    partymember("Kevin", "5000", "teamone");
-    partymember("Will", "5000", "teamtwo");
-    partymember("Jeavin", "4000", "teamone");
-    partymember("Alec", "6000", "teamtwo");
-    partymember("Stella", "3000", "teamtwo");
-    partymember("Rose", "4000", "teamtwo");
-    partymember("Hannah", "7000", "teamone");
-    partymember("Edward", "9999", "teamone");
-
-
   });
   /*]]>*/
