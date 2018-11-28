@@ -7,12 +7,8 @@
         const email = txtEmail.value;
         const pass = txtPassword.value;
         const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message));
+        promise.catch(e => alert("Email and/or Password is incorrect"));
       }
-      //document.getElementById('mySubmit4').addEventListener('click', logout);
-      //function logout(){
-      //  firebase.auth().signOut();
-      //}
       function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }

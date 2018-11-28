@@ -25,7 +25,7 @@ $( "#tennis2" ).click(function() {
 $( "#volleyball" ).click(function() {
         $( this ).toggleClass( "active" ); 
 });
-$( "#plus2" ).click(function() {
+$( "#foot" ).click(function() {
         $( this ).toggleClass( "active" ); 
 });
 
@@ -146,6 +146,7 @@ $('#ex1').slider({
       var usersRef = firebase.database().ref().child('PickUp').child('Users');
       //usersRef.update({ title: "New title", body: "This is the new body" }) 
       console.log(document.getElementById('base').value)
+      console.log(document.getElementById('foot').value)
       document.getElementById('mySubmit2').addEventListener('click', submitForm);
       function submitForm(e){
                 
@@ -157,9 +158,10 @@ $('#ex1').slider({
               var soccer = getInputVal('soccer');
               var tennis = getInputVal('tennis');
               var volley = getInputVal('volley');
+              var foot = getInputVal('foot');
               
               
-              createUser( name, name, pass, email, address, gender, base, basket, soccer, tennis, volley);
+              createUser( name, name, pass, email, address, gender, base, basket, soccer, tennis, volley, foot);
               const promise = firebase.auth().createUserWithEmailAndPassword(email, pass);
               promise.catch(e => console.log(e.message));
       }
@@ -172,7 +174,7 @@ $('#ex1').slider({
         var address = window.localStorage.getItem("addressfield");
         var gender = window.localStorage.getItem("gender");
       console.log(name);
-      function createUser(fullName, fullName, password, email, address, gender, base, basket, soccer, tennis, volley) {
+      function createUser(fullName, fullName, password, email, address, gender, base, basket, soccer, tennis, volley, foot) {
         usersRef.child(fullName).set({
         fullname: fullName,
         password: password,
@@ -185,7 +187,8 @@ $('#ex1').slider({
             basketball: basket,
             tennis: tennis,
             soccer: soccer,
-            volleyball: volley
+            volleyball: volley,
+            football: foot
         }
         });
 }

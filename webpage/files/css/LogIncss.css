@@ -8,24 +8,16 @@ body{
 @media only screen and (max-width: 800px)and (min-width: 200px)  {
 
     #top{
-        text-align: left;
-        background-color: #232323;
-        font-size: 28pt;
-        margin-top: -30px;
+      text-align: left;
+      background-color: #232323;
+      font-size: 28pt;
+      margin-bottom: 50px;
+      width: 100vw;
+      height: 47px;
+    }
 
-        margin-bottom: 100px;
-        width: 100vw;
-        height: 40px;
-        
-        box-shadow: 1px 4px 20px;
-    }
-    #top > h2{
-        cursor: pointer;
-        margin-left: 50px;
-        
-    }
     #box{
-        background-color: #2ab4d3;
+        background-color:  #00303f;
         box-shadow: 5px 5px 20px;
         margin-left: 15%;
         margin-right: 15%;
@@ -34,11 +26,13 @@ body{
         
     }
     h1{ 
+        color: white;
         cursor: pointer;
         font-size: 80px;
     }   
 
     #box > p{
+      color: white;
         text-align: center;
         margin-left: -130px;
         text-decoration: underline;
@@ -48,7 +42,7 @@ body{
     .button {
         margin-top: 10px; 
         border-radius: 4px;
-        background-color: #f4511e;
+        background-color: #e14658;
         border: none;
         color: black;
         text-align: center;
@@ -90,7 +84,7 @@ body{
       .button2 {
 
         border-radius: 4px;
-        background-color: white;
+        background-color: #f2d388;
         border: none;
         color: black;
         text-align: center;
@@ -132,6 +126,13 @@ body{
         width: 54%;
         margin: 0em 7.5em 1em !important;
       }
+      #logo {
+        height: 45px;
+        position: absolute;
+        top: 0;
+        left: calc(10vw - 57.795px);
+        width: auto;
+      }
 }
 @media only screen and (max-width: 1980px)and (min-width: 800px)  {
     #top{
@@ -148,8 +149,6 @@ body{
         height: 40px;
         margin-left: 98.5px;
         color: white;
-        
-        
         
     }
     #box{
