@@ -308,7 +308,7 @@ input[type=button] {
   right: 0;
   bottom: 0;
 }
-#joinbutton {
+#joinbutton, #leavebutton{
   background-color: #e14658;
   max-width: 200px;
   width: 200px;
@@ -319,7 +319,7 @@ input[type=button] {
   font-size: 26pt;
   font-weight: bold;
 }
-#joinbutton:hover {
+#joinbutton:hover, #leavebutton:hover {
   filter: drop-shadow(2px 2px 1px black);
   background-color: #11414f;
 }

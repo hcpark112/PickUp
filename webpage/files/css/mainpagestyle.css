@@ -44,7 +44,9 @@ input[type=image]:active {
 }
 
 #topbar div a:hover {
-  border-bottom: 3px solid #e14658;
+  height: 45px;
+  background-color: #e14658;
+  border-radius: 5%;
 }
 
 #logo img {
@@ -173,34 +175,30 @@ input[type=image]:active {
   height: 45px;
   border-bottom: 1px solid black;
 }
-
 #topbar span {
-  position: absolute;
-  left: calc(10vw - 55px);
-  font-size: 28pt;
+  line-height: 45px;
+  color: white;
+  font-size: 14pt;
+  width: 80px;
 }
-
 #topbar > div {
   display: inline-flex;
   float: right;
   height: 40px;
-  padding-top: 5px;
   margin-right: 2%;
 }
-
 .topimg {
   margin: 0 2%;
-  max-width: 43px;
-  max-height: 43px;
+  width: 45px;
+  height: 45px;
 }
-
 #topbar div a {
   line-height: 0px;
   font-size: 18pt;
   text-decoration: none;
   margin-left: 7%;
 }
-
+#logoutLink {display: inline-flex;}
 #profile {
   height: 90%;
   width: 90px;

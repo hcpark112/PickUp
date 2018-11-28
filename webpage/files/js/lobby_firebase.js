@@ -28,9 +28,11 @@ var gamesRef = firebase.database().ref().child('PickUp/Games');
 //-------------------------------------- Receiving Local Data -------------------------------------//
 
 
-var url = window.location.href;
-var query = url.substring(url.indexOf("?") + 1);
-query = query.replace(/\+/g, " ");
+let url = window.location.href;
+url = url.substring(url.indexOf("?") + 1).replace(/\+/g, " ");
+let urlArr = url.split("&");
+url = urlArr[0];
+let sport = urlArr[1];
 
 
 //------------------------------- Lists to Hold Users for Comparison ------------------------------//
@@ -50,7 +52,7 @@ gamesRef.once("value", function(snapshot) {
   snapshot.forEach(function(childSnapshot){
 
     //Checks to see if the child's node value is the same as the value passed from previous page.
-    if(childSnapshot.child('owner').val() == query){
+    if(childSnapshot.child('owner').val() == url){
 
       //Takes a snapshot if the matched node. (Locally storing it's contents)
       gamesRef.child(childSnapshot.key).once("value", function(snapshot) {
@@ -67,7 +69,7 @@ gamesRef.once("value", function(snapshot) {
 
         //Injecting each individual piece of information into their respective containers.
         lobbyname.html(data.owner + "'s lobby\n");
-        sporttype.html(data.sport);
+        sporttype.html(sport);
         gamedate.html(formatDate(data.date));
         skillrange.html("Skill level: " + data.levels.min + " - " + data.levels.max);
 
@@ -92,7 +94,7 @@ gamesRef.once("value", function(snapshot) {
   snapshot.forEach(function(childSnapshot){
 
     //Checks to see if the child's node value is the same as the value passed from previous page.
-    if(childSnapshot.child('owner').val() == query){
+    if(childSnapshot.child('owner').val() == url){
 
       //Takes snapshot of the members in the chosen game.
       gamesRef.child(childSnapshot.key + "/members").once("value", function(snapshot) {
@@ -156,7 +158,7 @@ function getUsers(snapshot){
 function joinGame(){
   gamesRef.once("value", function(snapshot) {
     snapshot.forEach(function(childSnapshot){
-      if(childSnapshot.child('owner').val() == query){
+      if(childSnapshot.child('owner').val() == url){
         gamesRef.child(childSnapshot.key + "/members").update({
           testUser: "testName"
         });
