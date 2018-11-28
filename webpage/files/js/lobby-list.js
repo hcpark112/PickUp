@@ -29,7 +29,7 @@ var gamesRef = firebase.database().ref().child('PickUp').child('Games');
 $(document).ready(function() {
 
   /***/
-  let sport = parseURL(window.location.href);
+  let sport = parseURL(window.location.href.replace("#", ""));
 
   /***/
   updatePage(sport);
@@ -92,7 +92,35 @@ function toLobby(lobbyDiv) {
  */
 function parseURL(url) {
   let index = url.indexOf("?");
-  return url.substring(index + 1);
+  let query = url.substring(index + 1);
+
+  if (query.substring(0,1) == "q") {
+    return parseSearch(query.substring(0, query.indexOf("&submit")));
+  } else {
+    return query;
+  }
+}
+
+/**
+ *
+ */
+function parseSearch(query) {
+  query = query.replace(/q=/g, "");
+  let arr = query.split("&");
+
+  appendLocation(arr[1]);
+
+  return arr[0].replace(/\+/g, " ");
+}
+
+/**
+ *
+ */
+function appendLocation(location) {
+  location = location.replace(/\+/g, " ");
+
+  $("#location input").remove();
+  $("#location div").append("<input type = 'text' placeholder = '" + location + "'>");
 }
 
 /**
