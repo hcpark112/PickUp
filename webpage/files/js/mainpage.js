@@ -34,10 +34,10 @@ $(document).ready(function() {
       .appendTo('#slideshow');
   },  15000);
   
-  category("Basketball", "./files/images/basketball.png", "");
-  category("Soccer", "./files/images/soccerball.png", "");
-  category("Football", "./files/images/football.png", "");
-  category("Baseball", "./files/images/baseball.png", "");
-  category("Volleyball", "./files/images/volleyball.png", "");
+  category("Basketball", "./files/images/basketball.png", "lobbylist.html?Basketball");
+  category("Soccer", "./files/images/soccerball.png", "lobbylist.html?Soccer");
+  category("Football", "./files/images/football.png", "lobbylist.html?Football");
+  category("Baseball", "./files/images/baseball.png", "lobbylist.html?Baseball");
+  category("Volleyball", "./files/images/volleyball.png", "lobbylist.html?Volleyball");
 
 });
