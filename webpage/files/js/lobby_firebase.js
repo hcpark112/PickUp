@@ -35,6 +35,13 @@ url = urlArr[0];
 let sport = urlArr[1];
 
 
+//-------------------------------------- Sending Local Data -------------------------------------//
+
+$("#leavebutton").click(function() {
+  window.location.href = "lobbylist.html?" + $("#roominfo h2").html();
+});
+
+
 //------------------------------- Lists to Hold Users for Comparison ------------------------------//
 
 //Stores the names and karma of every user in the database.
@@ -84,7 +91,7 @@ gamesRef.once("value", function(snapshot) {
 });
 
 
-//-------------------- Fills userList and membersList; Creates Member Elements --------------------// 
+//-------------------- Fills userList and membersList; Creates Member Elements --------------------//
 
 
 //Takes a snapshot of the Games node.
@@ -126,7 +133,7 @@ gamesRef.once("value", function(snapshot) {
           }
         })
       });
-    } 
+    }
   });
 });
 
@@ -171,7 +178,7 @@ function joinGame(){
           //Removes the user from members list.
           gamesRef.child(childSnapshot.key + "/members/" + "testUser").remove();
           stored = 'unclicked';
-        } 
+        }
 
         //If the button has not been pressed, add user to smaller team and change button status.
         else if(stored == 'unclicked'){

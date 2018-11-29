@@ -83,8 +83,9 @@ window.onclick = function(event) {
  * Uses data-owner attribute to extract owner of div
  */
 function toLobby(lobbyDiv) {
+  let sport = parseURL(window.location.href.replace("#", ""));
   let owner = lobbyDiv.getAttribute("data-owner");
-  window.location.href = "lobby.html?" + owner.replace(" ", "+");
+  window.location.href = "lobby.html?" + owner.replace(" ", "+") + "&" + sport;
 }
 
 /**
