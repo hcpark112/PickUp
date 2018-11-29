@@ -34,74 +34,116 @@ html, body {
     height: 20px;
     background-color: #232323;
 }
+#logo img {
+  height: 45px;
+  position: absolute;
+  top: 0;
+  left: calc(10vw - 57.795px);
+  width: auto;
+}
+#logoutLink {display: inline-flex;}
+.topimg {
+  margin: 0 2%;
+  width: 45px;
+  height: 45px;
+}
+#topbar div a:hover {
+  height: 43px;
+  background-color: #e14658;
+  border-radius: 5%;
+}
+#topbar span {
+  line-height: 45px;
+  color: white;
+  font-size: 14pt;
+  width: 80px;
+  position: unset;
+}
 /***************************/
-
+#details > div {
+  text-align: center;
+  margin: auto;
+  padding: 2% 0;
+  width: 40%;
+}
+#details span {
+  color: grey;
+  font-weight: bold;
+  font-size: 30pt;
+}
 /***************************
 ************FORM************
 ****************************/
 #Inner-Content form {
     position: absolute;
-    width: 50%;
+    width: 46%;
     height: calc(auto - 150px);
-    margin: 50px 25% 0 25%;
+    margin: 0px 27%;
     border: solid 1px grey;
+    text-align: center;
 }
 form label {
     display: block;
-    width: 80%;
+    width: 27%;
     font-size: 14pt;
     font-weight: bold;
     color: grey;
+    text-align: left;
+    margin-left: 10%
 }
 #Lobby-Name, #Sport-List, #Location, #Set-Date {
     margin-bottom: 10px;
 }
+#Date-Time{
+  display: flex;
+}
 input[type=text], input[type=date], input[type=time], input[type=number] {
     margin: 5px 0 15px 0;
-    padding: 5px;
+    padding: 5px 0px;
     font-size: 16pt;
+    color: grey;
 }
 input[type=text] {
-    width: 90%;
+    width: calc(80% - 4px);
 }
 input::placeholder {
     font-size: 16pt;
 }
 #Lobby-Name {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 select {
     display: inline-block;
     margin: 5px 0 15px 0;
-    width: 580px;
-    padding: 5px;
+    width: 62%;
+    padding: 5px 0px;
     font-size: 16pt;
+    color: grey;
 }
-#size {width: 75px;}
-input[type=date] {width: 20%;}
-input[type=time] {width: 15%;}
-input[type=number] {
-  margin-left: 20px;
-  width: 3%;
-}
+.timeLabels {margin-left: 0;}
+#size {width: calc(18% - 8.429px);}
+#Set-Date input{
+  width: calc(26% - 2px); 
+  height: 30.5px;}
 #selectLabel {
   display: inline-block;
   width: 14.5%;
-  margin-right: 0;
+  text-align: left;
+  margin-left: 0%;
 }
 #sizeLabel {
   display: inline-block;
-  width: 10%;
+  width: 17%;
   padding: 0;
-  margin-left: 20px;
+  margin-left: 47.5%;
 }
 #caption {
     display: inline-block;
     font-size: 18pt;
-    color: black;
+    color: grey;
 }
 input[type=submit], input[type=reset] {
-    margin: 20px 0;
+    margin: 20px;
     padding: 10px;
     outline: none;
     border: 1px solid black;
@@ -117,10 +159,10 @@ input[type=submit]:active, input[type=reset]:active {
 }
 input[type=submit] {
     float: left;
-    margin-left: 10px;
+    margin-left: 10%;
 }
 input[type=reset] {
     float: right;
-    margin-right: 10px;
+    margin-right: 10%;
 }
 /****************************/

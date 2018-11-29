@@ -11,10 +11,9 @@
     <div id="content" class="maxWidth maxHeight">
       <div>
         <div id="topbar">
-            <a href="mainpage.html"><span>PickUp</span></a>
+            <a id="logo" href="mainpage.html"><img src="./files/images/pickup_logo_bbw.png"></a>
             <div>
-              <a href="#"><img class="topimg" id="profile" src="./files/images/profile.png" alt="profile" /></a>
-              <a href="#"><img class="topimg" src="./files/images/settings.png" alt="settings" /></a>
+              <a id="logoutLink" href="LogIn.html"><img class="topimg" src="./files/images/logout.png" alt="logout" /><span id="logout">Log Out</span></a>
             </div>
           </div>
       <div id = "Inner-Content">
@@ -23,6 +22,11 @@
         </div>
         <div id = bar></div>
         <div id = "details">
+          <div>
+            <span>
+              Fill in the forms below to begin organizing your game
+            </span>
+          </div>
           <form>
             <div id = "Lobby-Name">
               <label for = "LobbyName">Lobby Name</label>
@@ -49,12 +53,14 @@
               <input type = "text" name = "Location" placeholder = "Enter an address" autocomplete="off">
             </div>
             <div id = "Set-Date">
-              <label for = "Date">Date and Duration</label>
+              <div id="Date-Time">
+                <label for = "Date">Date</label>
+                <label class="timeLabels" for = "Duration">Duration</label>
+                <label class="timeLabels" for = "Hours">Hours</label>
+              </div>
               <input type = "date" name = "Date" class = "date-duration">
               <input type = "time" name = "Time" class = "date-duration">
-              <br/>
               <input type = "number" name = "Duration" min = "1" max = "4" value="1" class = "date-duration">
-              <div id = "caption"> Hour(s)</div>
             </div>
             <input type = "submit">
             <input type = "reset" value = "Clear">
