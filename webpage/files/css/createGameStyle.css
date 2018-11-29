@@ -9,7 +9,7 @@ html, body {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 80%;
+    width: 100%;
     height: calc(100% - 45px);
     cursor: default;
 }
@@ -41,28 +41,28 @@ html, body {
 ****************************/
 #Inner-Content form {
     position: absolute;
-    width: 80%;
+    width: 50%;
     height: calc(auto - 150px);
-    background-color: gray;
-    background-image: linear-gradient(to bottom, rgb(170, 170, 170), rgb(205, 205, 205));
-    margin: 0 10%;
+    margin: 50px 25% 0 25%;
+    border: solid 1px grey;
 }
 form label {
     display: block;
-    margin-bottom: 5px;
-    border-bottom: solid 2px black;
-    padding-left: 30px;
-    font-size: 24pt;
+    width: 80%;
+    font-size: 14pt;
     font-weight: bold;
-    color: white; 
+    color: grey;
+}
+#Lobby-Name, #Sport-List, #Location, #Set-Date {
+    margin-bottom: 10px;
 }
 input[type=text], input[type=date], input[type=time], input[type=number] {
-    margin: 10px 0 15px 30px;
+    margin: 5px 0 15px 0;
     padding: 5px;
     font-size: 16pt;
 }
 input[type=text] {
-    width: 60%;
+    width: 90%;
 }
 input::placeholder {
     font-size: 16pt;
@@ -71,32 +71,56 @@ input::placeholder {
     padding-top: 40px;
 }
 select {
-    display: block;
-    margin: 10px 0 15px 30px;
+    display: inline-block;
+    margin: 5px 0 15px 0;
+    width: 580px;
     padding: 5px;
     font-size: 16pt;
 }
-#size {width: 5%;}
+#size {width: 75px;}
 input[type=date] {width: 20%;}
 input[type=time] {width: 15%;}
-input[type=number] {width: 3%;}
+input[type=number] {
+  margin-left: 20px;
+  width: 3%;
+}
+#selectLabel {
+  display: inline-block;
+  width: 14.5%;
+  margin-right: 0;
+}
+#sizeLabel {
+  display: inline-block;
+  width: 10%;
+  padding: 0;
+  margin-left: 20px;
+}
 #caption {
     display: inline-block;
     font-size: 18pt;
-    color: white;
+    color: black;
 }
 input[type=submit], input[type=reset] {
     margin: 20px 0;
     padding: 10px;
-    font-size: 20pt;
-    background-color: white;
+    outline: none;
+    border: 1px solid black;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #efefef;
+    background-color: #e14658;
+}
+input[type=submit]:hover, input[type=reset]:hover {filter: drop-shadow(4px 4px 2px grey);}
+input[type=submit]:active, input[type=reset]:active {
+    padding: 9.5px;
+    font-size: 17.5pt;
 }
 input[type=submit] {
     float: left;
-    margin-left: 25px;
+    margin-left: 10px;
 }
 input[type=reset] {
     float: right;
-    margin-right: 25px;
+    margin-right: 10px;
 }
 /****************************/
