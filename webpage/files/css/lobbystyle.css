@@ -1,3 +1,5 @@
+/*The styling for the lobby page.*/
+
 body {
   font-family: sans-serif;
   margin: 0;
@@ -10,7 +12,11 @@ a:visited{color: #efefef;}
 input[type=image]:hover{filter: drop-shadow(2px 2px 1px black);}
 input[type=image]:active {background-color: white;}
 .lobby:hover{border-bottom: 3px solid #e14658;}
-#topbar div a:hover {border-bottom: 3px solid #e14658;}
+#topbar div a:hover {
+  height: 45px;
+  background-color: #e14658;
+  border-radius: 5%;
+}
 #logo img {
   height: 45px;
   position: absolute;
@@ -53,21 +59,21 @@ input[type=image]:active {background-color: white;}
   border-bottom: 1px solid black;
 }
 #topbar span {
-  position: absolute;
-  left: calc(10vw - 55px);
-  font-size: 28pt;
+  line-height: 45px;
+  color: white;
+  font-size: 14pt;
+  width: 80px;
 }
 #topbar > div {
   display: inline-flex;
   float: right;
   height: 40px;
-  padding-top: 5px;
   margin-right: 2%;
 }
 .topimg {
   margin: 0 2%;
-  max-width: 43px;
-  max-height: 43px;
+  width: 45px;
+  height: 45px;
 }
 #topbar div a {
   line-height: 0px;
@@ -75,11 +81,7 @@ input[type=image]:active {background-color: white;}
   text-decoration: none;
   margin-left: 7%;
 }
-#profile {
-  height: 90%;
-  width: 90px;
-  max-width: unset;
-}
+#logoutLink {display: inline-flex;}
 .rightborder {border-right: 3px solid black;}
 input[type=image] {
   outline: none;
@@ -306,7 +308,7 @@ input[type=button] {
   right: 0;
   bottom: 0;
 }
-#joinbutton {
+#joinbutton, #leavebutton{
   background-color: #e14658;
   max-width: 200px;
   width: 200px;
@@ -317,7 +319,7 @@ input[type=button] {
   font-size: 26pt;
   font-weight: bold;
 }
-#joinbutton:hover {
+#joinbutton:hover, #leavebutton:hover {
   filter: drop-shadow(2px 2px 1px black);
   background-color: #11414f;
 }

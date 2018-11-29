@@ -318,8 +318,16 @@ h1{
   padding: 0px;
 }
 .rangeslider__handle {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  padding-top: 2%;
+  padding-left: 0.3%;
   background: #f2d388 !important;
   border: 1px solid #f2d388 !important;
+}
+.rangeslider__handle:after {
+  width: 0px !important;
 }
 
 #leftbox > p:not(:first-child){

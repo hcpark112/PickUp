@@ -7,12 +7,10 @@
     <link rel="stylesheet" type="text/css" href="./files/css/lobbystyle.css">
   </head>
   <body>
-
     <div id="content" class="maxWidth maxHeight">
       <div id="topbar">
         <div>
-          <a href="https://www.google.com"><img class="topimg" id="profile" src="./files/images/profile.png" alt="profile" /></a>
-          <a href="https://www.google.com"><img class="topimg" src="./files/images/settings.png" alt="settings" /></a>
+          <a id="logoutLink" href="LogIn.html"><img class="topimg" src="./files/images/logout.png" alt="logout" /><span id="logout">Log Out</span></a>
         </div>
       </div>
       <a id="logo" href="./mainpage.html"><img src="./files/images/pickup_logo_bbw.png"></a>
@@ -33,7 +31,6 @@
             </div>
             <span class="team">Team 1</span>
             <div id="teamone">
-
             </div>
           </div>
         </div>
@@ -41,7 +38,6 @@
           <div id="teamstwo">
             <span class="team">Team 2</span>
             <div id="teamtwo">
-
             </div>
           </div>
         </div>
@@ -52,6 +48,7 @@
         </div>
         <div id="joindiv">
           <button id='joinbutton' onclick="joinGame()">Join</button>
+          <button id='leavebutton' onclick="window.location.href='lobbylist.html'">Back</button>
         </div>
       </div>
     </div>
