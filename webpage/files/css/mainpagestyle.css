@@ -27,10 +27,6 @@ input[type=image]:active {
   background-color: white;
 }
 
-.lobby:hover{
-  border-bottom: 3px solid #e14658;
-}
-
 #categories input[type=button]:hover {
   filter: drop-shadow(2px 2px 1px black);
 }
@@ -123,7 +119,7 @@ input[type=image]:active {
 }
 
 .catediv {
-  margin: 6% auto 0;
+  margin: 5% auto 0;
   border-radius: 25%;
   text-decoration: none;
 }
@@ -144,13 +140,6 @@ input[type=image]:active {
   margin-top: 20px;
   width: 100px;
   height: 100px;
-}
-
-.roomicon {
-  border-radius: 25%;
-  margin: 0 10.5%;
-  width: 30px;
-  height: 30px;
 }
 
 .namediv {
@@ -314,16 +303,4 @@ input[type=button] {
   height: 50px;
   width: 200px;
   margin: 0 auto;
-}
-
-.lobby {
-  width: 20vw;
-  display: inline-flex;
-  background-color: #11414f;
-  font-weight: bold;
-  color: #efefef;
-  margin-top: 10px;
-  padding: 15px 0;
-  font-size: 12pt;
-  cursor: pointer;
 }
