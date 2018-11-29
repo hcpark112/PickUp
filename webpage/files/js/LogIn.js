@@ -1,7 +1,9 @@
     const auth = firebase.auth();
     const txtEmail = document.getElementById('txtEmail');
     const txtPassword = document.getElementById('txtPassword');
-    document.getElementById('mySubmit3').addEventListener('click', login);
+    const input = document.querySelector('#mySubmit3');
+    const input2 = document.querySelector('#txtPassword');
+    input.addEventListener('click', login);
       function login(e){
         e.preventDefault();
         const email = txtEmail.value;
@@ -9,6 +11,16 @@
         const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
         promise.catch(e => alert("Email and/or Password is incorrect"));
       }
+      
+      input2.addEventListener('keyup',function(e){
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            const email = txtEmail.value;
+            const pass = txtPassword.value;
+            const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
+            promise.catch(e => alert("Email and/or Password is incorrect"));
+      }
+    });
       function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }
