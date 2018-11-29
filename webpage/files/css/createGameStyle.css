@@ -1,37 +1,37 @@
 /**STYLE FOR CREATE A GAME PAGE**/
 
 html, body {
-    overflow-x: hidden;
-    width: 100%;
-    background-color: rgb(230, 228, 228);
+  overflow-x: hidden;
+  width: 100%;
+  background-color: rgb(230, 228, 228);
 }
 #Inner-Content {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: calc(100% - 45px);
-    cursor: default;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100% - 45px);
+  cursor: default;
 }
 
 /***************************
 *******CREATE-HEADER********
 ****************************/
 #Create-Header {
-    width: 100%;
-    height: 150px;
-    background-color: #13586d;
-    background-image: linear-gradient(to right, #13586d, #11414f);
+  width: 100%;
+  height: 150px;
+  background-color: #13586d;
+  background-image: linear-gradient(to right, #13586d, #11414f);
 }
 #Create-Header h1 {
-    display: inline-block;
-    margin: 40px 0 0 40px;
-    font-size: 36pt;
-    color: white;
+  display: inline-block;
+  margin: 40px 0 0 40px;
+  font-size: 36pt;
+  color: white;
 }
 #bar {
-    width: 100%;
-    height: 20px;
+  width: 100%;
+  height: 20px;
     background-color: #232323;
 }
 #logo img {
@@ -75,56 +75,59 @@ html, body {
 ************FORM************
 ****************************/
 #Inner-Content form {
-    position: absolute;
-    width: 46%;
-    height: calc(auto - 150px);
-    margin: 0px 27%;
-    border: solid 1px grey;
-    text-align: center;
+  position: absolute;
+  width: 46%;
+  height: calc(auto - 150px);
+  margin: 0px 27%;
+  border: solid 1px grey;
+  text-align: center;
 }
 form label {
-    display: block;
-    width: 27%;
-    font-size: 14pt;
-    font-weight: bold;
-    color: grey;
-    text-align: left;
-    margin-left: 10%
+  display: block;
+  width: 27%;
+  font-size: 14pt;
+  font-weight: bold;
+  color: grey;
+  text-align: left;
+  margin-left: 10%
 }
 #Lobby-Name, #Sport-List, #Location, #Set-Date {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 #Date-Time{
   display: flex;
 }
 input[type=text], input[type=date], input[type=time], input[type=number] {
-    margin: 5px 0 15px 0;
-    padding: 5px 0px;
-    font-size: 16pt;
-    color: grey;
+  margin: 5px 0 15px 0;
+  padding: 5px 0px;
+  font-size: 16pt;
+  color: grey;
 }
 input[type=text] {
-    width: calc(80% - 4px);
+  width: calc(80% - 4px);
 }
 input::placeholder {
-    font-size: 16pt;
+  padding-left: 1%;
+  font-size: 16pt;
 }
 #Lobby-Name {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 select {
-    display: inline-block;
-    margin: 5px 0 15px 0;
-    width: 62%;
-    padding: 5px 0px;
-    font-size: 16pt;
-    color: grey;
+  display: inline-block;
+  margin: 5px 0 15px 0;
+  width: 62%;
+  padding: 5px 0px;
+  font-size: 16pt;
+  color: grey;
 }
 .timeLabels {margin-left: 0;}
 #size {width: calc(18% - 8.429px);}
 #Set-Date input{
   width: calc(26% - 2px); 
-  height: 30.5px;}
+  height: 30.5px;
+}
+input[type=date]::placeholder {padding-left: 1%;}
 #selectLabel {
   display: inline-block;
   width: 14.5%;
@@ -138,31 +141,31 @@ select {
   margin-left: 47.5%;
 }
 #caption {
-    display: inline-block;
-    font-size: 18pt;
-    color: grey;
+  display: inline-block;
+  font-size: 18pt;
+  color: grey;
 }
 input[type=submit], input[type=reset] {
-    margin: 20px;
-    padding: 10px;
-    outline: none;
-    border: 1px solid black;
-    font-size: 18pt;
-    font-weight: bold;
-    color: #efefef;
-    background-color: #e14658;
+  margin: 20px;
+  padding: 10px;
+  outline: none;
+  border: 1px solid black;
+  font-size: 18pt;
+  font-weight: bold;
+  color: #efefef;
+  background-color: #e14658;
 }
 input[type=submit]:hover, input[type=reset]:hover {filter: drop-shadow(4px 4px 2px grey);}
 input[type=submit]:active, input[type=reset]:active {
-    padding: 9.5px;
-    font-size: 17.5pt;
+  padding: 9.5px;
+  font-size: 17.5pt;
 }
 input[type=submit] {
-    float: left;
-    margin-left: 10%;
+  float: left;
+  margin-left: 10%;
 }
 input[type=reset] {
-    float: right;
-    margin-right: 10%;
+  float: right;
+  margin-right: 10%;
 }
 /****************************/
