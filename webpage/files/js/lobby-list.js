@@ -130,6 +130,10 @@ function appendLocation(location) {
 function updatePage(sport) {
   $("h1").html(sport);
 }
+
+function goBack() {
+  window.location.href = "mainpage.html";
+}
 /*******************************************************************************
 ********************************************************************************/
 

@@ -86,11 +86,11 @@ input[type=button] {
 }
 #sport-name h1 {
     margin: 60px 0px 0px 48px;
-    font-size: 36pt;
+    font-size: 56pt;
 }
 #sport-name h3 {
     margin: 0 0 0 220px;
-    font-size: 18pt;
+    font-size: 32pt;
     color: grey;
 }
 #lobby-header-bottom {
@@ -258,6 +258,24 @@ input[type=button] {
 .event-location div {
     display: inline-block;
     margin: -5px 0 0 2px;
+}
+#back {
+  background-color: #e14658;
+  margin-left: 40px;
+  border: 2px solid #00303f;
+  color: #efefef;
+  font-size: 28pt;
+  font-weight: bold;
+  outline: none;
+}
+#back:hover {
+  cursor: pointer;
+  border-bottom: solid white 1px;
+  border-top: solid white 1px;
+}
+#back:active {
+  border-bottom: solid white 2px;
+  border-top: solid white 2px;
 }
 /******************************
 ******************************/

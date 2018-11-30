@@ -27,17 +27,18 @@
               Fill in the forms below to begin organizing your game
             </span>
           </div>
-          <form>
+          <form onsubmit = "parseForm(this)">
             <div id = "Lobby-Name">
               <label for = "LobbyName">Lobby Name</label>
-              <input type = "text" name = "LobbyName" placeholder = "Enter a name for your lobby" autocomplete="off">
+              <input type = "text" name = "LobbyName" placeholder = "Enter a name for your lobby" autocomplete="off" required = "required">
             </div>
             <div id = "Sport-List">
               <label id = "selectLabel" for = "SportList">Sport</label>
               <label id = "sizeLabel" for = "Size">Max Players</label>
               <br/>
-              <select name = "SportList">
+              <select name = "SportList" required = "required">
                 <option value = "">Select a Sport</option>
+                <option value = "Hockey">Hockey</option>
                 <option value = "Basketball">Basketball</option>
                 <option value = "Football">Football</option>
                 <option value = "Soccer">Soccer</option>
@@ -46,30 +47,32 @@
                 <option value = "Tennis">Tennis</option>
                 <option value = "Badminton">Badminton</option>
               </select>
-              <input type = "number" name = "Size" id = "size" min = "2" max = "24" value = "12">
+              <input type = "number" name = "Size" id = "size" min = "2" max = "12" value = "6" step="2">
             </div>
             <div id = "Location">
               <label for = "Location">Location</label>
-              <input type = "text" name = "Location" placeholder = "Enter an address" autocomplete="off">
+              <input type = "text" name = "Location" placeholder = "Enter an address" autocomplete="off" required = "required">
             </div>
             <div id = "Set-Date">
               <div id="Date-Time">
                 <label for = "Date">Date</label>
-                <label class="timeLabels" for = "Duration">Duration</label>
+                <label class="timeLabels" for = "Time">Start Time</label>
                 <label class="timeLabels" for = "Hours">Hours</label>
               </div>
-              <input type = "date" name = "Date" class = "date-duration">
-              <input type = "time" name = "Time" class = "date-duration">
-              <input type = "number" name = "Duration" min = "1" max = "4" value="1" class = "date-duration">
+              <input type = "date" name = "Date" class = "date-duration" required = "required" value = "2018-12-04" min = "2018-12-04" max = "2019-12-31">
+              <input type = "time" name = "Time" class = "date-duration" required = "required">
+              <input type = "number" name = "Hours" min = "1" max = "4" value="1" class = "date-duration">
             </div>
             <input type = "submit">
-            <input type = "reset" value = "Clear">
+            <input type = "button" value = "Back" onclick = "goBack()">
           </form>
         </div>
       </div>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src = "./files/js/SideAndTopBars.js"></script>
+    <script src = "./files/js/create-game.js"></script>
   </body>
 </html>

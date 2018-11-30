@@ -124,7 +124,7 @@ select {
 .timeLabels {margin-left: 0;}
 #size {width: calc(18% - 8.429px);}
 #Set-Date input{
-  width: calc(26% - 2px); 
+  width: calc(26% - 2px);
   height: 30.5px;
 }
 input[type=date]::placeholder {padding-left: 1%;}
@@ -145,7 +145,7 @@ input[type=date]::placeholder {padding-left: 1%;}
   font-size: 18pt;
   color: grey;
 }
-input[type=submit], input[type=reset] {
+input[type=submit], input[type=button] {
   margin: 20px;
   padding: 10px;
   outline: none;
@@ -155,16 +155,16 @@ input[type=submit], input[type=reset] {
   color: #efefef;
   background-color: #e14658;
 }
-input[type=submit]:hover, input[type=reset]:hover {filter: drop-shadow(4px 4px 2px grey);}
-input[type=submit]:active, input[type=reset]:active {
+input[type=submit]:hover, input[type=button]:hover {filter: drop-shadow(4px 4px 2px grey);}
+input[type=submit]:active, input[type=button]:active {
   padding: 9.5px;
   font-size: 17.5pt;
 }
-input[type=submit] {
+input[type=button] {
   float: left;
   margin-left: 10%;
 }
-input[type=reset] {
+input[type=submit] {
   float: right;
   margin-right: 10%;
 }
