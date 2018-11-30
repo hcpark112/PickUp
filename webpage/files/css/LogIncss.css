@@ -37,7 +37,7 @@ body{
         margin-left: -130px;
         text-decoration: underline;
         font-size: 20px;
-        cursor: pointer;
+        cursor: default;
     }
     .button {
         margin-top: 10px; 
@@ -164,14 +164,16 @@ body{
         color: white;
         cursor: pointer;
         font-size: 90px;
+        cursor: default;
     }   
 
     #box > p{
         text-align: center;
-        margin-left: -140px;
+        margin-left: 240px;
         margin-top: -30px;
         text-decoration: underline;
         font-size: 18px;
+        width: 25%;
         cursor: pointer;
         color: white;
     }

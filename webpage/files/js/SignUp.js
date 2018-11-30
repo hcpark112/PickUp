@@ -1,3 +1,11 @@
+/**
+ * JAVASCRIPT FOR LogIn.html PAGE
+ *
+ * @author Alec Martin, A01059594
+ */
+/**
+ * FireBase config
+ */
 var config = {
     apiKey: "AIzaSyD0bFMT_-dlAfllbPc2rJXhZRnrJIERwv8",
     authDomain: "pickup-1541825853857.firebaseapp.com",
@@ -7,10 +15,21 @@ var config = {
     messagingSenderId: "51007491965"
     };
     firebase.initializeApp(config);
+    /**
+     * References user in firebase
+     */
     var usersRef= firebase.database().ref().child('PickUp').child('Users').push();
     
     var user = firebase.auth().currentUser;
+    /**
+     * Checks if next button is pressed
+     */
     document.getElementById('mySubmit').addEventListener('click', submitForm);
+    /**
+     * Gives all the forms to local storage so they can be used
+     * in the next page
+     * @param {} e 
+     */
     function submitForm(e){
               
             e.preventDefault();
