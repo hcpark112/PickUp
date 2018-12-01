@@ -1,5 +1,7 @@
-//Javascript for the mainpage
-
+/**
+* Javascript for the mainpage
+* @author Kevin Park, a00881241
+*/
 /**Creates the categories buttons.*/
 function category(sport, image_src, target){
   var catediv = $("<div class='catediv'></div>");
@@ -39,7 +41,7 @@ $(document).ready(function() {
       .end()
       .appendTo('#slideshow');
   },  15000);
-  
+
   //Creating the five categories.
   category("Basketball", "./files/images/basketball.png", "lobbylist.html?Basketball");
   category("Soccer", "./files/images/soccerball.png", "lobbylist.html?Soccer");

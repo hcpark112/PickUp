@@ -1,5 +1,7 @@
-// Non-database related javascript functions.
-
+/**
+* Non-database related javascript functions.
+* @author Kevin Park, a00881241
+*/
 /**Function pulled from google for the maps API*/
 function myMap() {
   var mapProp = {
@@ -27,7 +29,7 @@ function partymember(username, karma, team){
 
   $(playerkarma).html(karma);
   $(playername).html(username);
-  
+
   $(player).attr('id', username);
 
   $(playerkarmadiv).append(playerkarma);

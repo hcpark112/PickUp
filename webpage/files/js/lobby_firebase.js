@@ -1,6 +1,7 @@
-//Javascript pertaining to the lobby page's firebase functions.
-
-
+/**
+* Javascript pertaining to the lobby page's firebase functions.
+* @author Kevin Park, a00881241
+*/
 //---------------------------------------- Database Key -------------------------------------------//
 
 

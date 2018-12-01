@@ -13,13 +13,13 @@ var config = {
     projectId: "pickup-1541825853857",
     storageBucket: "pickup-1541825853857.appspot.com",
     messagingSenderId: "51007491965"
-    };
-    firebase.initializeApp(config); 
-    /**
-     * On load of page make the user sign out
-     * used for log in page
-     */
-    window.onload = function(e) {
-        firebase.auth().signOut();
-        console.log("Signing out...")
-    };
+};
+firebase.initializeApp(config);
+/**
+ * On load of page make the user sign out
+ * used for log in page
+ */
+window.onload = function(e) {
+    firebase.auth().signOut();
+    console.log("Signing out...")
+};
