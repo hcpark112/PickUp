@@ -26,6 +26,10 @@ var config = {
      */
     document.getElementById('mySubmit').addEventListener('click', submitForm);
     /**
+     * Checks if back button is pressed
+     */
+    document.getElementById('mySubmit2').addEventListener('click', back);
+    /**
      * Gives all the forms to local storage so they can be used
      * in the next page
      * @param {} e 
@@ -40,10 +44,12 @@ var config = {
             window.localStorage.setItem("emailfield2",document.getElementById("emailfield2").value);
             window.localStorage.setItem("addressfield",document.getElementById("addressfield").value);
             window.localStorage.setItem("gender",document.getElementById("gender").value);
-            var name = window.localStorage.getItem("name");
-            console.log(name);
+            window.location.href = "SignUp2.html";
     }
-    console.log(name);
     function getInputVal(id){
             return document.getElementById(id).value;
     }
+    function back(e){
+        e.preventDefault();
+        window.location.href = "LogIn.html";
+}

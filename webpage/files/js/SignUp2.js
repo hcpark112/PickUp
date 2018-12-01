@@ -203,12 +203,30 @@ $('#ex1').slider({
        * User reference
        */
       var usersRef = firebase.database().ref().child('PickUp').child('Users');
-      console.log(document.getElementById('base').value)
-      console.log(document.getElementById('foot').value)
+        /**
+        * Makes a sleep function that is used for signing out
+        * @param {Milliseconds} ms 
+        */
+        function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+        }
+      /**
+       * Checks if back button has been clicked.
+       */
+      document.getElementById('mySubmit').addEventListener('click', back);
+            /**
+       * Gets the values of the items stored in local storage from SignUp1
+       */
+      var name = window.localStorage.getItem("name");
+      var pass = window.localStorage.getItem("password");
+      var email = window.localStorage.getItem("emailfield2");
+      var address = window.localStorage.getItem("addressfield");
+      var gender = window.localStorage.getItem("gender");
       /**
        * Checks if next has been clicked. If it has then add the user to the database
        */
       document.getElementById('mySubmit2').addEventListener('click', submitForm);
+      document.getElementById('mySubmit2').addEventListener('click', next);
       function submitForm(e){
                 
               e.preventDefault();
@@ -225,7 +243,15 @@ $('#ex1').slider({
               createUser( name, name, pass, email, address, gender, base, basket, soccer, tennis, volley, foot);
               const promise = firebase.auth().createUserWithEmailAndPassword(email, pass);
               promise.catch(e => console.log(e.message));
+             
+              
       }
+        document.getElementById('mySubmit2').addEventListener('click', next);
+        function next(e){
+                e.preventDefault();
+                window.location.href = "LogIn.html";
+        }
+
       /**
        * Gets the inputed value of a range slider
        * @param {Id of form} id 
@@ -233,15 +259,12 @@ $('#ex1').slider({
       function getInputVal(id){
               return document.getElementById(id).value;   
       }
-      /**
-       * Gets the values of the items stored in local storage from SignUp1
-       */
-        var name = window.localStorage.getItem("name");
-        var pass = window.localStorage.getItem("password");
-        var email = window.localStorage.getItem("emailfield2");
-        var address = window.localStorage.getItem("addressfield");
-        var gender = window.localStorage.getItem("gender");
-      console.log(name);
+      function back(e){
+        e.preventDefault();
+        window.location.href = "SignUp1.html";
+        }
+
+        
       /**
        * Creates the user in the database when called.
        * @param {*} fullName 
