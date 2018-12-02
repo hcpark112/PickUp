@@ -222,13 +222,13 @@ $('#ex1').slider({
       var email = window.localStorage.getItem("emailfield2");
       var address = window.localStorage.getItem("addressfield");
       var gender = window.localStorage.getItem("gender");
+      var functionCompleted = false;
       /**
        * Checks if next has been clicked. If it has then add the user to the database
        */
       document.getElementById('mySubmit2').addEventListener('click', submitForm);
-      document.getElementById('mySubmit2').addEventListener('click', next);
       function submitForm(e){
-                
+              console.log(functionCompleted)
               e.preventDefault();
               //console.log(123);
               
@@ -243,14 +243,24 @@ $('#ex1').slider({
               createUser( name, name, pass, email, address, gender, base, basket, soccer, tennis, volley, foot);
               const promise = firebase.auth().createUserWithEmailAndPassword(email, pass);
               promise.catch(e => console.log(e.message));
+              //There is no god
+              //You have to click next twice because I have no idea how to do it any other way.
+              next();
+              functionCompleted = true;
              
               
       }
-        document.getElementById('mySubmit2').addEventListener('click', next);
-        function next(e){
-                e.preventDefault();
+        //Checks for the next button to take you to the next page.
+        function next(){
+                if(functionCompleted){
                 window.location.href = "LogIn.html";
+                console.log(functionCompleted)
+                }
+                else{
+                console.log(functionCompleted);
+                }
         }
+        next();
 
       /**
        * Gets the inputed value of a range slider
