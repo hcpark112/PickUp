@@ -38,15 +38,15 @@
     const input3 = document.querySelector('#mySubmit4');
 
     /******************STUFF I ADDED - WILL**********************/
-    var userRef = firebase.database().ref().child('PickUp').child('Users');
+    // var userRef = firebase.database().ref().child('PickUp').child('Users');
 
-    userRef.orderByChild("email").equalTo("amartin@gmail.com").once('child_added', function(snapshot) {
-      console.log(snapshot.key); //remove this
-      window.localStorage.setItem("User", snapshot.key);
-    });
+    // userRef.orderByChild("email").equalTo("amartin@gmail.com").once('child_added', function(snapshot) {
+    //   console.log(snapshot.key); //remove this
+    //   window.localStorage.setItem("User", snapshot.key);
+    // });
     /************************************************************/
 
-
+    var userRef = firebase.database().ref().child('PickUp').child('Users');
     /**
      * Checks if the Log in button has been pressed
      */
@@ -62,6 +62,10 @@
         const pass = txtPassword.value;
         const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
         promise.catch(e => alert("Email and/or Password is incorrect"));
+        userRef.orderByChild("email").equalTo(email).once('child_added', function(snapshot) {
+          console.log(snapshot.key);
+          window.localStorage.setItem("User", snapshot.key);
+        });
 
       }
       /**
@@ -74,8 +78,14 @@
             const pass = txtPassword.value;
             const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
             promise.catch(e => alert("Email and/or Password is incorrect"));
+            userRef.orderByChild("email").equalTo(email).once('child_added', function(snapshot) {
+              console.log(snapshot.key);
+              window.localStorage.setItem("User", snapshot.key);
+            });
       }
     });
+    var user = window.localStorage.getItem("User");
+    console.log(user);
     /**
      * Checks if the Sign up button has been pressed
      */
