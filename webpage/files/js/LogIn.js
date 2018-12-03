@@ -128,3 +128,4 @@
      * Makes the program wait before checking if the user is signed in
      */
     wait();
+    
