@@ -141,7 +141,7 @@ function appendLocation(location) {
     location = location.replace(/\+/g, " ");
     $("#location input").remove();
     $("#location div").append("<input type = 'text' placeholder = '" + location + "'>");
-  }  
+  }
 }
 
 /**
@@ -195,7 +195,7 @@ gamesRef.on('child_added', function(snapshot) {
  * gamesRef, this function goes through each child node and grabs the values of
  * the ones we want.
  *
- * We grab the date, capacity, and owner, then short circuit the search. These
+ * We grab the date, capacity, owner, and number of members, then short circuit the search. These
  * pieces of data are converted into the format we want and stored into an object.
  *
  * @param snapshot A single game in gamesRef.
@@ -203,8 +203,8 @@ gamesRef.on('child_added', function(snapshot) {
  *             will be appended to the page. Stored into a array after being returned.
  */
 function getLobbyListData(snapshot) {
-  let hasDate = false, hasCapacity = false, hasOwner = false;
-  var date, capacity, owner, obj;
+  let hasDate = false, hasCapacity = false, hasOwner = false, hasMembers = false;
+  var date, capacity, owner, obj, memberCount = 0;
 
   snapshot.forEach(function(childSnapshot) {
     if(childSnapshot.key == "date") {
@@ -218,15 +218,20 @@ function getLobbyListData(snapshot) {
     } else if(childSnapshot.key == "owner") {
       owner = childSnapshot.val();
       hasOwner = true;
-
+    } else if(childSnapshot.key == "members") {
+      childSnapshot.forEach(function(members) {
+        memberCount++;
+      });
+      hasMembers = true;
     }
 
-    if(hasDate && hasCapacity && hasOwner) {
+    if(hasDate && hasCapacity && hasOwner && hasMembers) {
       obj = {
         maxSize: parseInt(capacity),
         date   : parseDate(date),
         owner  : owner,
-        html   : createLobbyHTML(date, capacity, owner)
+        html   : createLobbyHTML(date, capacity, owner, memberCount),
+        members: memberCount
       }
       return true;
     }
@@ -250,7 +255,7 @@ function getLobbyListData(snapshot) {
  * @param owner the owner of the game.
  * @return the custom div.
  */
-function createLobbyHTML(date, capacity, owner) {
+function createLobbyHTML(date, capacity, owner, memberCount) {
   let lobbyDiv = $("<div class = 'lobby'></div>");
 
   //onclick
@@ -271,7 +276,7 @@ function createLobbyHTML(date, capacity, owner) {
 
   $(boxDescriptionDiv).append("<div class = 'box-profile'><img src = './files/images/person.png' alt = 'pic'></div>");
   $(boxDescriptionDiv).append("<div class = 'user-name'>" + owner + "</div>");
-  $(boxDescriptionDiv).append("<div class = 'capacity'>" + formatCapacity(capacity) + "</div>");
+  $(boxDescriptionDiv).append("<div class = 'capacity'>" + memberCount + "/" + capacity + "</div>");
 
   return lobbyDiv;
 }
@@ -327,18 +332,6 @@ function formatMonth(month) {
     default:
       throw "Error: Not valid month";
   }
-}
-
-/**
- * Formats the maxSize to also show the current number of players. Uses a randomly
- * generated number for number of players for testing purposes.
- *
- * @param capacity the maxSize from the game object.
- * @return the formatted capacity.
- */
-function formatCapacity(capacity) {
-  var currPlayers = ((Math.random() * capacity)) | 0;
-  return currPlayers + "/" + capacity;
 }
 
 /**
@@ -454,14 +447,14 @@ function dateSort() {
 }
 
 /**
- * Sorts lobbyArr using a insertion sort algorithm. Sorts by max game capacity.
+ * Sorts lobbyArr using a insertion sort algorithm. Sorts by players.
  */
 function capacitySort() {
   for (let i = 1; i < lobbyArr.length; ++i) {
     let temp = lobbyArr[i];
     let j = i - 1;
 
-    while (j >= 0 && lobbyArr[j].maxSize > temp.maxSize) {
+    while (j >= 0 && lobbyArr[j].members > temp.members) {
       lobbyArr[j + 1] = lobbyArr[j];
       j = j - 1;
     }
