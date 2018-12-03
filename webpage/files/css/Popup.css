@@ -106,7 +106,7 @@ background-color: #00303f;
 
 
 }
-#foot{
+#foot2{
 margin-top: 10px !important;
 margin-bottom: 10px !important;
 border-radius: 10%;
@@ -128,7 +128,7 @@ background-color: #00303f;
 #tennis2:hover{
     border: 3px solid #e14658
 }
-#foot:hover{
+#foot2:hover{
     border: 3px solid #e14658
 }
 #baseball2.active{
@@ -146,6 +146,7 @@ background-color: #00303f;
 #volleyball.active{
     border: 3px solid #e14658
 }
-#foot.active{
-    border: 3px solid #e14658
+#foot2.active{
+    border: 3px solid #e14658;
+    
 }

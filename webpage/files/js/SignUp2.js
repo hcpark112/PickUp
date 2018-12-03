@@ -62,7 +62,7 @@ $( "#volleyball" ).click(function() {
 /**
  * Displays Football box as if it has been clicked. 
  */
-$( "#foot" ).click(function() {
+$( "#foot2" ).click(function() {
         $( this ).toggleClass( "active" ); 
 });
 /**
