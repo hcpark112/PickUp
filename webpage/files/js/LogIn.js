@@ -36,6 +36,17 @@
      * Gets the input of the Sign up button
      */
     const input3 = document.querySelector('#mySubmit4');
+
+    /******************STUFF I ADDED - WILL**********************/
+    var userRef = firebase.database().ref().child('PickUp').child('Users');
+
+    userRef.orderByChild("email").equalTo("amartin@gmail.com").once('child_added', function(snapshot) {
+      console.log(snapshot.key); //remove this
+      window.localStorage.setItem("User", snapshot.key);
+    });
+    /************************************************************/
+
+
     /**
      * Checks if the Log in button has been pressed
      */
@@ -43,7 +54,7 @@
     /**
      * Authenticates user if there Email and Password is correct
      * else it returns an alert
-     * @param {} e 
+     * @param {} e
      */
       function login(e){
         e.preventDefault();
@@ -51,7 +62,7 @@
         const pass = txtPassword.value;
         const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
         promise.catch(e => alert("Email and/or Password is incorrect"));
-        
+
       }
       /**
        * Checks if a enter has been pressed on the password form
@@ -71,7 +82,7 @@
     input3.addEventListener('click', signup);
     /**
      * Takes user to sign up page.
-     * @param {} e 
+     * @param {} e
      */
     function signup(e){
       e.preventDefault();
@@ -79,7 +90,7 @@
     }
     /**
      * Makes a sleep function that is used for signing out
-     * @param {Milliseconds} ms 
+     * @param {Milliseconds} ms
      */
       function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
@@ -92,14 +103,14 @@
       /**
        * Checks if the user is signed in
        */
-        firebase.auth().onAuthStateChanged(firebaseUser =>{ 
-          if(firebaseUser) { 
-          console.log (firebaseUser); 
+        firebase.auth().onAuthStateChanged(firebaseUser =>{
+          if(firebaseUser) {
+          console.log (firebaseUser);
           console.log("Logging in...");
           window.location.href = "mainpage.html";
-          
-          } else { 
-          console.log('not logged in'); 
+
+          } else {
+          console.log('not logged in');
           }
     });
 }
