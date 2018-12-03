@@ -165,6 +165,33 @@ $( document ).ready(function() {
           }
         ]
       },
+      day: {
+        identifier: 'day',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please select a day'
+          }
+        ]
+      },
+      month: {
+        identifier: 'month',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please select a month'
+          }
+        ]
+      },
+      year: {
+        identifier: 'year',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please select a year'
+          }
+        ]
+      },
       terms: {
         identifier: 'check',
         rules: [

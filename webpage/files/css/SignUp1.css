@@ -149,6 +149,7 @@ h1{
   }
   #emailfield{
     margin-left: 16px !important;
+    margin-right: -16px !important;
   }
   
   #address{
@@ -237,8 +238,9 @@ h1{
       margin-left: 36% !important;
     }
   }
-  #boxfield{
-    margin-left: -25px; 
-    width: 53vw;
+
+  .ui.error.message{
+ width: 53vw;
+ margin-left: -28px;
   }
 
