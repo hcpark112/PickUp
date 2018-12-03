@@ -28,10 +28,14 @@ var gamesRef = firebase.database().ref().child('PickUp').child('Games');
  */
 $(document).ready(function() {
 
-  /***/
+  /**
+   * Grabs the url of the page, passes it into parseURL and stores the sport
+   * query into "sport". Removes a '#' character if present, it can show up in the
+   * URL when you refresh the page.
+   */
   let sport = parseURL(window.location.href.replace("#", ""));
 
-  /***/
+  /**Sets sport to the lobby list header (h1).*/
   updatePage(sport);
 
   /**Replaces drop-down text with selection from drop-down menu.*/
@@ -80,7 +84,12 @@ window.onclick = function(event) {
   }
 
 /**
- * Uses data-owner attribute to extract owner of div
+ * Uses data-owner attribute to extract owner of div. It then sends the appropiate
+ * owner to lobby.html through the url. This function is called through a onclick()
+ * attribute attached to all the lobby divs.
+ *
+ * @param lobbyDiv the lobby that the user clicks. Has a onclick attribute and passes
+ *                 itself as a parameter.
  */
 function toLobby(lobbyDiv) {
   let sport = parseURL(window.location.href.replace("#", ""));
@@ -89,7 +98,10 @@ function toLobby(lobbyDiv) {
 }
 
 /**
+ * Parses the modified URL to extract data sent from the previous page (mainpage.html).
+ * If the URL includes symbols from the search bar, the url is passed to parseSearch().
  *
+ * @param url The URL of lobbylist.html upon loading.
  */
 function parseURL(url) {
   let index = url.indexOf("?");
@@ -103,7 +115,11 @@ function parseURL(url) {
 }
 
 /**
+ * Extracts the data sent from the mainpage search bar. For testing purposes
+ * it does not use the date. It does set the location to whichever location the
+ * user specified in the search.
  *
+ * @param query The URL of lobbylist.html after the '?' symbol.
  */
 function parseSearch(query) {
   query = query.replace(/q=/g, "");
@@ -115,7 +131,10 @@ function parseSearch(query) {
 }
 
 /**
+ * Replaces the location input placeholder with the user's specified location.
  *
+ * @param location the location entered by the user through the mainpage search
+ *                 bar.
  */
 function appendLocation(location) {
   location = location.replace(/\+/g, " ");
@@ -125,12 +144,18 @@ function appendLocation(location) {
 }
 
 /**
+ * Updates the page to put the sport in the h1.
  *
+ * @param sport The sport for the lobbylist.html page.
  */
 function updatePage(sport) {
   $("h1").html(sport);
 }
 
+/**
+ * Called by a onclick() attribute on the back button. Takes you back to the
+ * main page.
+ */
 function goBack() {
   window.location.href = "mainpage.html";
 }
@@ -150,7 +175,9 @@ var lobbyArr = [];
 const MAX_GAMES = 12;
 
 /**
- *
+ * Iterates through each game in 'gamesRef'. Grabs the information of each game
+ * using getLobbyListData(), and stores it into a object. It then pushes this
+ * object into an array. If it has all the games, it will append them to the page.
  */
 gamesRef.on('child_added', function(snapshot) {
   let obj = getLobbyListData(snapshot);
@@ -163,9 +190,16 @@ gamesRef.on('child_added', function(snapshot) {
 });
 
 /**
+ * Using the data snapshot from gamesRef.on(), which represents one game in
+ * gamesRef, this function goes through each child node and grabs the values of
+ * the ones we want.
  *
- * @param snapshot
- * @return obj
+ * We grab the date, capacity, and owner, then short circuit the search. These
+ * pieces of data are converted into the format we want and stored into an object.
+ *
+ * @param snapshot A single game in gamesRef.
+ * @return obj Represents a game and holds capacity, date, owner, and raw html that
+ *             will be appended to the page. Stored into a array after being returned.
  */
 function getLobbyListData(snapshot) {
   let hasDate = false, hasCapacity = false, hasOwner = false;
@@ -208,11 +242,12 @@ function getLobbyListData(snapshot) {
 ********************************************************************************/
 
 /**
+ * Creates the div for a game in gamesRef.
  *
- * @param date
- * @param capacity
- * @param owner
- * @return
+ * @param date the date of the game.
+ * @param capacity the max size of the game.
+ * @param owner the owner of the game.
+ * @return the custom div.
  */
 function createLobbyHTML(date, capacity, owner) {
   let lobbyDiv = $("<div class = 'lobby'></div>");
@@ -241,9 +276,10 @@ function createLobbyHTML(date, capacity, owner) {
 }
 
 /**
+ * Formats the date into Month Day, Year. Example: January 1, 2019
  *
- * @param date
- * @return
+ * @param date the date in the game object.
+ * @return the formatted date.
  */
 function formatDate(date) {
   let arr = date.split("/");
@@ -257,8 +293,9 @@ function formatDate(date) {
 }
 
 /**
+ * Converts the shortened month name into its full name.
  *
- * @param month
+ * @param month the converted month.
  */
 function formatMonth(month) {
   switch(month) {
@@ -292,9 +329,11 @@ function formatMonth(month) {
 }
 
 /**
+ * Formats the maxSize to also show the current number of players. Uses a randomly
+ * generated number for number of players for testing purposes.
  *
- * @param capacity
- * @return
+ * @param capacity the maxSize from the game object.
+ * @return the formatted capacity.
  */
 function formatCapacity(capacity) {
   var currPlayers = ((Math.random() * capacity)) | 0;
@@ -302,7 +341,7 @@ function formatCapacity(capacity) {
 }
 
 /**
- *
+ * Appends the divs to lobbylist.html page.
  */
 function appendToPage() {
   for(let i = 0; i < lobbyArr.length; i++) {
@@ -319,23 +358,24 @@ function appendToPage() {
 ********************************************************************************/
 
 /**
+ * Converts the date into a integer value. Used for comparisons.
  *
- * @param date
- * @return
+ * @param date the date from the firebase.
+ * @return the date as a interger value.
  */
 function parseDate(date) {
   let arr = date.split("/");
   let monthStr = arr[0], dayStr = arr[1], yearStr = arr[2];
 
-  // console.log(parseInt(dayStr) + monthVal(monthStr) + yearVal(yearStr));
   return parseInt(dayStr) + monthVal(monthStr) + yearVal(yearStr);
 
 }
 
 /**
+ * Converts the month into a integer value from 100-1200, in increments of a 100.
  *
- * @param month
- * @return
+ * @param month The month from firebase.
+ * @return the month as a integer value.
  */
 function monthVal(month) {
   switch(month) {
@@ -369,9 +409,11 @@ function monthVal(month) {
 }
 
 /**
+ * Converts the year into a integer value from 10000 to 20000. Only accounts
+ * for this year the next for testing purporses.
  *
- * @param year
- * @return
+ * @param year the year from the database.
+ * @return the year as a integer value.
  */
 function yearVal(year) {
   switch(year) {
@@ -393,7 +435,7 @@ function yearVal(year) {
 ********************************************************************************/
 
 /**
- *
+ * Sorts lobbyArr using a insertion sort algorithm. Sorts by date.
  */
 function dateSort() {
   for (let i = 1; i < lobbyArr.length; ++i) {
@@ -411,7 +453,7 @@ function dateSort() {
 }
 
 /**
- *
+ * Sorts lobbyArr using a insertion sort algorithm. Sorts by max game capacity.
  */
 function capacitySort() {
   for (let i = 1; i < lobbyArr.length; ++i) {
@@ -429,7 +471,7 @@ function capacitySort() {
 }
 
 /**
- *
+ * Randomizes the order of lobbyArr. Used as a placeholder for distance sort.
  */
 function randomize() {
   let rand, temp;
