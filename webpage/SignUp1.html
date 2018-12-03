@@ -6,15 +6,15 @@
         <style>
 
         </style>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">      
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css">
         <link rel="stylesheet" type="text/css" href="./files./css/SignUp1.css">
-        
+
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
-        
+
     </head>
     <body>
-        
+
             <div id = "top">
                         <img id="logo"src="./files/images/pickup_logo_bbw.png">
             </div>
@@ -56,7 +56,7 @@
                                 <div class="three inline fields" id="date">
                                         <label id = "bd">Birth Date</label>
                                         <div class="two wide field">
-                                                
+
                                                 <select name="day" class="ui dropdown" id="day">
                                                         <option value="day">dd</option>
                                                         <option value="1">1</option>
@@ -95,7 +95,7 @@
                                         <div class="two wide field">
                                                 <select name="month" class="ui dropdown" id="month">
                                                         <option value="month">mm</option>
-                                                        <option value="12"></option>
+                                                        <!-- <option value="12"></option> -->
                                                         <option value="january">01</option>
                                                         <option value="febuary">02</option>
                                                         <option value="march">03</option>
@@ -108,7 +108,7 @@
                                                         <option value="october">10</option>
                                                         <option value="november">11</option>
                                                         <option value="december">12</option>
-                                                
+
                                                 </select>
                                         </div>
                                         <div class="two wide field">
@@ -175,25 +175,25 @@
                                                                 <option value="1960">1960</option>
                                                         </select>
                                                 </div>
-                                        
+
                             </div>
                             <div class="inline field ">
                                         <div class="ui checkbox">
-                                        <input type="checkbox" name="check"  required>
+                                        <input type="checkbox" name="check" id='check' required>
                                           <label id="label2">I agree to the Terms and Conditions</label>
                                         </div>
                                       </div>
                             <script>
-                               
+
                             </script>
                     </div>
-                
+
                 <button class="button2" id="mySubmit2" style="vertical-align:right"><span>Back </span></button>
                 <button class="button" type="submit" id="mySubmit" style="vertical-align:right"><span>Next </span></button>
             </div>
-            
+
         <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
         <script src="./files/js/SignUp.js"></script>
-            
+
     </body>
 </html>

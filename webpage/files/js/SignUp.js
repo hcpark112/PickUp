@@ -19,7 +19,7 @@ var config = {
      * References user in firebase
      */
     var usersRef= firebase.database().ref().child('PickUp').child('Users').push();
-    
+
     var user = firebase.auth().currentUser;
     /**
      * Checks if next button is pressed
@@ -32,20 +32,75 @@ var config = {
     /**
      * Gives all the forms to local storage so they can be used
      * in the next page
-     * @param {} e 
+     * @param {} e
      */
     function submitForm(e){
-              
-            e.preventDefault();
+            // let hasName = false, hasPass = false, hasEmail = false, hasAddress = false
+            //e.preventDefault();
             //console.log(123);
-           
             window.localStorage.setItem("name",document.getElementById("name").value);
             window.localStorage.setItem("password",document.getElementById("password").value);
             window.localStorage.setItem("emailfield2",document.getElementById("emailfield2").value);
             window.localStorage.setItem("addressfield",document.getElementById("addressfield").value);
             window.localStorage.setItem("gender",document.getElementById("gender").value);
-            window.location.href = "SignUp2.html";
+            window.localStorage.setItem("day",document.getElementById("day").value);
+            window.localStorage.setItem("month",document.getElementById("month").value);
+            window.localStorage.setItem("year",document.getElementById("year").value);
+            window.localStorage.setItem("check",document.getElementById("check").value);
+
+            if(isFilled()) {
+              window.location.href = "SignUp2.html";
+            } else {
+              alert("**All Fields are Required**");
+            }
     }
+
+    /**Checks that all the fields are filled*/
+    function isFilled() {
+      let localName =  window.localStorage.getItem("name");
+      let hasName = localName.trim().length != 0;
+
+      let localPass =  window.localStorage.getItem("password");
+      let hasPass = localPass.trim().length != 0;
+
+      let localEmail =  window.localStorage.getItem("emailfield2");
+      let hasEmail = checkEmailFormat(localEmail);
+
+      let localAddress =  window.localStorage.getItem("addressfield");
+      let hasAddress = localAddress.trim().length != 0;
+
+      let localGender =  window.localStorage.getItem("gender");
+      let hasGender = localGender.trim().length != 0;
+
+      let localDay =  window.localStorage.getItem("day");
+      let hasDay = localDay != "day";
+
+      let localMonth =  window.localStorage.getItem("month");
+      let hasMonth = localMonth != "month";
+
+      let localYear =  window.localStorage.getItem("year");
+      let hasYear = localYear != "year";
+
+      //let localCheck =  window.localStorage.getItem("check");
+      let localCheck = document.getElementById("check");
+
+      // console.log(localCheck.checked);
+
+      return hasName && hasPass && hasEmail && hasAddress && hasGender && hasDay && hasMonth && hasYear && localCheck.checked;
+    }
+
+    /**Makes sure that the email field is in email format*/
+    function checkEmailFormat(localEmail) {
+      let isEmpty = localEmail.trim().length == 0;
+      let hasAt = localEmail.indexOf("@") > 0;
+      if(!isEmpty && hasAt) {
+        let str = localEmail.substring(localEmail.indexOf("@"));
+        return str.indexOf(".") > 0;
+      } else {
+        return false;
+      }
+    }
+
     function getInputVal(id){
             return document.getElementById(id).value;
     }

@@ -168,13 +168,13 @@ function joinGame(){
     snapshot.forEach(function(childSnapshot){
       if(childSnapshot.child('owner').val() == url){
         gamesRef.child(childSnapshot.key + "/members").update({
-          testUser: "testName"
+          testUser: window.localStorage.getItem("User")
         });
 
         //IF the button was pressed, remove user from lobby + database and change the button status.
         if(stored == 'clicked'){
           $("#joinbutton").html("Join");
-          $("#testName").remove();
+          $("#" + window.localStorage.getItem("User")).remove();
           teamPlacement--;
           //Removes the user from members list.
           gamesRef.child(childSnapshot.key + "/members/" + "testUser").remove();
@@ -185,10 +185,10 @@ function joinGame(){
         else if(stored == 'unclicked'){
           $("#joinbutton").html("Leave");
           if(teamPlacement % 2 == 0){
-            partymember("testName", "testKarma", "teamone");
+            partymember(window.localStorage.getItem("User"), "5000", "teamone");
             teamPlacement++;
           } else if (teamPlacement % 2 == 1){
-            partymember("testName", "testKarma", "teamtwo");
+            partymember(window.localStorage.getItem("User"), "5000", "teamtwo");
             teamPlacement++;
           }
           stored = 'clicked';
