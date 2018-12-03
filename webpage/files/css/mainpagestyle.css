@@ -22,10 +22,12 @@ a:visited{
 #searchButt:hover{
   background-color: #ff7285;
   outline: none;
+  cursor: pointer;
 }
 
 #categories input[type=button]:hover {
   background-color: #ff7285;
+  cursor: pointer;
 }
 
 #categories span:hover {
