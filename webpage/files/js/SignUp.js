@@ -113,3 +113,4 @@ var config = {
         e.preventDefault();
         window.location.href = "LogIn.html";
 }
+
