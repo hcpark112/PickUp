@@ -4,6 +4,11 @@ body{
     width: 100vw;
     margin: 0;
     font-family: sans-serif;
+    height: auto;
+    font-family: sans-serif;
+    background-image: linear-gradient(to bottom right, #00303f, white);
+    background-size: auto 1500px;
+    background-repeat: no-repeat;
 }
 @media only screen and (max-width: 800px)and (min-width: 200px)  {
 
