@@ -11,6 +11,7 @@ firebase.initializeApp(config);
 
 var createRef = firebase.database().ref().child('PickUp').child('CreatedGames');
 
+/***/
 function createGame(name, sport, size, location, date, time, duration, owner){
   createRef.child(name).set({
     sport: sport,
@@ -28,10 +29,14 @@ function createGame(name, sport, size, location, date, time, duration, owner){
 ***************************MISC PAGE FUNCTIONS**********************************
 ********************************************************************************/
 
+/***/
 function goBack() {
   window.location.href = "mainpage.html";
 }
 
+/**
+ *
+ */
 function parseForm(form) {
   let name = form.LobbyName.value;
   let sport = form.SportList.value;
@@ -44,6 +49,9 @@ function parseForm(form) {
   createGame(name, sport, size, location, date, time, duration, "test");
 }
 
+/**
+ *
+ */
 function convertDate(date) {
   let dateArr = date.split("-"), month = formatMonth(dateArr[1]);
   return month + "/" + dateArr[2] + "/" + dateArr[0];
