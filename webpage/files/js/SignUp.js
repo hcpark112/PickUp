@@ -56,7 +56,6 @@ var config = {
                 window.location.href = "SignUp2.html";
               }              
             } else {
-              alert("**All Fields are Required**");
             }
     }
 
@@ -113,4 +112,70 @@ var config = {
         e.preventDefault();
         window.location.href = "LogIn.html";
 }
+$( document ).ready(function() {
+  $('.ui.form')
+  .form({
+    fields: {
+      name: {
+        identifier: 'name',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your name'
+          }
+        ]
+      },
+      password: {
+        identifier: 'password',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter a password'
+          },
+          {
+            type   : 'minLength[6]',
+            prompt : 'Your password must be at least {ruleValue} characters'
+          }
+        ]
+      },
+      email: {
+        identifier: 'emailfield2',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your email'
+          }
+        ]
+      },
+      address: {
+        identifier: 'addressfield',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please enter your address'
+          }
+        ]
+      },
+      gender: {
+        identifier: 'gender',
+        rules: [
+          {
+            type   : 'empty',
+            prompt : 'Please select a gender'
+          }
+        ]
+      },
+      terms: {
+        identifier: 'check',
+        rules: [
+          {
+            type   : 'checked',
+            prompt : 'You must agree to the terms and conditions'
+          }
+        ]
+      }
+    }
+  })
+;
+});
 

@@ -5,14 +5,14 @@
 /**Function pulled from google for the maps API*/
 function myMap() {
   var mapProp = {
-      center:new google.maps.LatLng(49.255847, -123.062216),
+      center:new google.maps.LatLng(49.2835, -123.1153),
       zoom: 15,
     };
   var map = new google.maps.Map(document.getElementById("location"),mapProp);
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(49.255847, -123.062216),
+    position: new google.maps.LatLng(49.2835, -123.1153),
     map: map,
-    title: 'Trout Lake'
+    title: 'BCIT DT Campus'
   });
 }
 
