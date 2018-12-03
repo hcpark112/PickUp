@@ -49,7 +49,12 @@ var config = {
             window.localStorage.setItem("check",document.getElementById("check").value);
 
             if(isFilled()) {
-              window.location.href = "SignUp2.html";
+              let enteredPass = window.localStorage.getItem("password");
+              if(enteredPass.length < 6) {
+                alert("**Pasword must be at least 6 characters**");
+              } else {
+                window.location.href = "SignUp2.html";
+              }              
             } else {
               alert("**All Fields are Required**");
             }
