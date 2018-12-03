@@ -46,7 +46,7 @@
     // });
     /************************************************************/
 
-
+    var userRef = firebase.database().ref().child('PickUp').child('Users');
     /**
      * Checks if the Log in button has been pressed
      */
@@ -63,6 +63,7 @@
         const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
         promise.catch(e => alert("Email and/or Password is incorrect"));
         userRef.orderByChild("email").equalTo(email).once('child_added', function(snapshot) {
+          console.log(snapshot.key);
           window.localStorage.setItem("User", snapshot.key);
         });
 
@@ -78,10 +79,13 @@
             const promise = firebase.auth().signInWithEmailAndPassword(email, pass);
             promise.catch(e => alert("Email and/or Password is incorrect"));
             userRef.orderByChild("email").equalTo(email).once('child_added', function(snapshot) {
+              console.log(snapshot.key);
               window.localStorage.setItem("User", snapshot.key);
             });
       }
     });
+    var user = window.localStorage.getItem("User");
+    console.log(user);
     /**
      * Checks if the Sign up button has been pressed
      */
