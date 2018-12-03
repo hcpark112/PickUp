@@ -19,20 +19,13 @@ a:visited{
   color: #efefef;
 }
 
-input[type=image]:hover{
-  filter: drop-shadow(2px 2px 1px black);
-}
-
-input[type=image]:active {
-  background-color: white;
+#searchButt:hover{
+  background-color: #ff7285;
+  outline: none;
 }
 
 #categories input[type=button]:hover {
-  filter: drop-shadow(2px 2px 1px black);
-}
-
-#categories input[type=button]:active {
-  background-color: #00303f;
+  background-color: #ff7285;
 }
 
 #categories span:hover {
@@ -196,14 +189,14 @@ input[type=image]:active {
 
 #searchbar {
   border: 2px solid black;
-  background-color: #00303f;
+  background-color: rgb(230, 228, 228);
   position: absolute;
   z-index: 500;
   top: 60%;
   left: 0;
   right: 0;
-  height: 15%;
-  width: 75%;
+  height: auto;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -214,12 +207,12 @@ label {
 }
 
 .rightborder {
-  border-right: 3px solid black;
+  border-right: 2px solid #787878;
 }
 
-#searchleftpadding {
+/* #searchleftpadding {
   padding-left: 4%;
-}
+} */
 
 .forlabels {
   display: inline-block;
@@ -230,10 +223,10 @@ label {
   margin-left: 1%;
 }
 
-input[type=image] {
+/* input[type=image] {
   outline: none;
   border: 2px solid black;
-  background-color: #f2d388;
+  background-color: rgb(230, 228, 228);
   position: absolute;
   border-radius: 20%;
   top: 15%;
@@ -242,18 +235,29 @@ input[type=image] {
   min-width: 20px;
   min-height: 20px;
   height: 70%;
+} */
+
+#searchButt {
+  font-size: 18pt;
+  height: calc(5vh + 2px);
+  background-color: #e14658;
+  color: white;
+  float: right;
+  width: 15%;
+  border-left: 2px solid #00303f;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  outline: none
 }
 
 input[type=text] {
   outline: none;
-  color: #efefef;
+  color: #787878;
   font-size: 18pt;
   font-style: italic;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: 4px solid #f2d388;
-  background-color: #00303f;
+  border: none;
+  background-color: rgb(230, 228, 228);
   height: 5vh;
   width: 100%;
 }
@@ -284,7 +288,7 @@ input[type=text] {
 }
 
 input::placeholder {
-  color: #efefef;
+  color: #787878;
   font-size: 18pt;
 }
 
