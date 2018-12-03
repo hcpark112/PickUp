@@ -30,7 +30,7 @@ var gamesRef = firebase.database().ref().child('PickUp/Games');
 
 
 let url = window.location.href;
-url = url.substring(url.indexOf("?") + 1).replace(/\+/g, " ");
+url = url.substring(url.indexOf("?") + 1).replace(/\+/g, " ").replace(/\%20/g, " ");
 let urlArr = url.split("&");
 url = urlArr[0];
 let sport = urlArr[1];
@@ -141,7 +141,7 @@ gamesRef.once("value", function(snapshot) {
 /**This function adds all members of a game into the membersList array.*/
 function getMembers(snapshot){
   snapshot.forEach(function(childSnapshot){
-    var members = childSnapshot.val();
+    var members = childSnapshot.val().replace(" ", "_");
     membersList.push(members);
   });
 }
@@ -149,8 +149,8 @@ function getMembers(snapshot){
 /**This function adds the names and karmas of all users into the userList array.*/
 function getUsers(snapshot){
   snapshot.forEach(function(childSnapshot){
-    var userNames = childSnapshot.child('fullname').val();
-    var userKarma = childSnapshot.child('karma').val();
+    var userNames = childSnapshot.child('fullname').val().replace(" ", "_");
+    var userKarma = childSnapshot.child('karma').val().replace(" ", "_");
     userList.push({
       fullname: userNames,
       karma: userKarma
@@ -168,13 +168,14 @@ function joinGame(){
     snapshot.forEach(function(childSnapshot){
       if(childSnapshot.child('owner').val() == url){
         gamesRef.child(childSnapshot.key + "/members").update({
-          testUser: window.localStorage.getItem("User")
+          testUser: window.localStorage.getItem("User").replace(" ", "_")
         });
 
         //IF the button was pressed, remove user from lobby + database and change the button status.
         if(stored == 'clicked'){
           $("#joinbutton").html("Join");
-          $("#" + window.localStorage.getItem("User")).remove();
+          $("#" + window.localStorage.getItem("User").replace(" ", "_")).remove();
+          console.log(window.localStorage.getItem("User").replace(" ", "_"));
           teamPlacement--;
           //Removes the user from members list.
           gamesRef.child(childSnapshot.key + "/members/" + "testUser").remove();
@@ -185,10 +186,10 @@ function joinGame(){
         else if(stored == 'unclicked'){
           $("#joinbutton").html("Leave");
           if(teamPlacement % 2 == 0){
-            partymember(window.localStorage.getItem("User"), "5000", "teamone");
+            partymember(window.localStorage.getItem("User").replace(" ", "_"), "5000", "teamone");
             teamPlacement++;
           } else if (teamPlacement % 2 == 1){
-            partymember(window.localStorage.getItem("User"), "5000", "teamtwo");
+            partymember(window.localStorage.getItem("User").replace(" ", "_"), "5000", "teamtwo");
             teamPlacement++;
           }
           stored = 'clicked';

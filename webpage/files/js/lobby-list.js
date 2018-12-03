@@ -118,10 +118,11 @@ function parseSearch(query) {
  *
  */
 function appendLocation(location) {
-  location = location.replace(/\+/g, " ");
-
-  $("#location input").remove();
-  $("#location div").append("<input type = 'text' placeholder = '" + location + "'>");
+  if(location != "") {
+    location = location.replace(/\+/g, " ");
+    $("#location input").remove();
+    $("#location div").append("<input type = 'text' placeholder = '" + location + "'>");
+  }  
 }
 
 /**
