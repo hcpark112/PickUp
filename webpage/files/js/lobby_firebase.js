@@ -167,8 +167,9 @@ function joinGame(){
   gamesRef.once("value", function(snapshot) {
     snapshot.forEach(function(childSnapshot){
       if(childSnapshot.child('owner').val() == url){
+        let rand = window.localStorage.getItem("SessionID");
         gamesRef.child(childSnapshot.key + "/members").update({
-          testUser: window.localStorage.getItem("User").replace("_", " ")
+          [rand]: window.localStorage.getItem("User").replace("_", " ")
         });
 
         //IF the button was pressed, remove user from lobby + database and change the button status.
@@ -181,7 +182,7 @@ function joinGame(){
           $(c).remove();
           teamPlacement--;
           //Removes the user from members list.
-          gamesRef.child(childSnapshot.key + "/members/" + "testUser").remove();
+          gamesRef.child(childSnapshot.key + "/members/" + rand).remove();
           stored = 'unclicked';
         }
 

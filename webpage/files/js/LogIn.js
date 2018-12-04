@@ -80,7 +80,9 @@
             promise.catch(e => alert("Email and/or Password is incorrect"));
             userRef.orderByChild("email").equalTo(email).once('child_added', function(snapshot) {
               console.log(snapshot.key);
+              let rand = (Math.random() * 100000) | 0;
               window.localStorage.setItem("User", snapshot.key);
+              window.localStorage.setItem("SessionID", rand);
             });
       }
     });
@@ -128,4 +130,3 @@
      * Makes the program wait before checking if the user is signed in
      */
     wait();
-    

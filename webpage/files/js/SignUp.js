@@ -54,7 +54,7 @@ var config = {
                 alert("**Pasword must be at least 6 characters**");
               } else {
                 window.location.href = "SignUp2.html";
-              }              
+              }
             } else {
             }
     }
@@ -205,4 +205,3 @@ $( document ).ready(function() {
   })
 ;
 });
-
