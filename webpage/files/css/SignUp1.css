@@ -5,9 +5,28 @@ body{
     margin: 0;
     height: auto;
     font-family: sans-serif;
-    background-image: linear-gradient(to bottom right, #00303f, white);
+    background: linear-gradient(139deg, #00303f, #ffffff);
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
     background-size: auto 1500px;
     background-repeat: no-repeat;
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:19% 0%}
+  50%{background-position:42% 50%}
+  100%{background-position:19% 0%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:19% 0%}
+  50%{background-position:42% 50%}
+  100%{background-position:19% 0%}
+}
+@keyframes AnimationName { 
+  0%{background-position:19% 0%}
+  50%{background-position:42% 50%}
+  100%{background-position:19% 0%}
 }
 html {
   height: 100%;
