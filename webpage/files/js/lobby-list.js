@@ -108,7 +108,7 @@ function parseURL(url) {
   let query = url.substring(index + 1);
 
   if (query.substring(0,1) == "q") {
-    return parseSearch(query.substring(0, query.indexOf("&submit")));
+    return parseSearch(query);
   } else {
     return query;
   }
