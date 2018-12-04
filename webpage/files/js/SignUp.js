@@ -165,6 +165,7 @@ $( document ).ready(function() {
           }
         ]
       },
+<<<<<<< Updated upstream
       day: {
         identifier: 'day',
         rules: [
@@ -192,6 +193,8 @@ $( document ).ready(function() {
           }
         ]
       },
+=======
+>>>>>>> Stashed changes
       terms: {
         identifier: 'check',
         rules: [

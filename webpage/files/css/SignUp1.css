@@ -264,6 +264,10 @@ h1{
       margin-left: 36% !important;
     }
   }
+  #boxfield{
+    margin-left: -25px; 
+    width: 53vw;
+  }
 
   .ui.error.message{
  width: 53vw;
